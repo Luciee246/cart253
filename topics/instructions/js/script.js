@@ -1,6 +1,6 @@
 /**
  * The Greatest Landscape
- * Lucie Soussana, Yelena Arakelan, Scarlett Arriola
+ * Lucie Soussana, Yelena Arakelian, Scarlett Arriola
  * 
  * A beautiful landscape with land, a lake, a house, a sun, a UFO, and a frog
  */
