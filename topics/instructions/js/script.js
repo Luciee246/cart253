@@ -18,5 +18,8 @@ function setup() {
  * Draws land, a lake, a sun, a bird, a frog, and a house
 */
 function draw() {
-
+    // Green grass
+    noStroke();
+    fill("#74B72E");
+    rect(0, 450, 950, 200);
 }
