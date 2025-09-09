@@ -22,4 +22,9 @@ function draw() {
     noStroke();
     fill("#74B72E");
     rect(0, 450, 950, 200);
+
+    // Draw the lake
+    noStroke()
+    fill("#19437D");
+    ellipse(200, 550, 475, 100);
 }
