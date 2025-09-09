@@ -2,7 +2,7 @@
  * The Greatest Landscape
  * Lucie Soussana, Yelena Arakelan, Scarlett Arriola
  * 
- * A beautiful landscape with land, a lake, a sun, a bird, a frog, and a house
+ * A beautiful landscape with land, a lake, a house, a sun, a UFO, and a frog
  */
 
 "use strict";
@@ -15,10 +15,10 @@ function setup() {
 
 
 /**
- * Draws land, a lake, a sun, a bird, a frog, and a house
+ * Draws land, a lake, a house, a sun, a UFO, and a frog
 */
 function draw() {
-    // Green grass
+    // Draw the land
     noStroke();
     fill("#74B72E");
     rect(0, 450, 950, 200);
@@ -28,7 +28,7 @@ function draw() {
     fill("#19437D");
     ellipse(200, 550, 475, 100);
 
-    //Draw the house body
+    //Draw the house body TURN INTO FUNCTION CALL
     fill("#FED8B1");
     rect(600, 350, 200, 150);
     // Draw the door
@@ -40,4 +40,14 @@ function draw() {
     //Draw the window
     fill("#E2CCE6");
     circle(700, 385, 50);
+
+    // Draw the sun
+    fill("#FFDD00");
+    circle(100, 100, 100);
+
+    // Draw the UFO
+    fill("#7F7D9C");
+    ellipse(400, 200, 300, 80);
+    fill("#ADADC9");
+    ellipse(400, 170, 150, 80);
 }
