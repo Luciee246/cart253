@@ -23,7 +23,7 @@ function draw() {
 
     // draw the circle
     push();
-    fill(200, 100, 100);
+    fill(mouseX, mouseY, 100);
     noStroke();
     ellipse(mouseX, mouseY, 100);
     pop();
