@@ -11,4 +11,4 @@ Lucie Soussana
 
 > The experience is controlled via the mouse. Bring the microphone closer to my mouth and I will prepare to sing, and vice-versa!
 
-I used the text function, which I never used, to write "Music is like oxygen to me"
+I used the text function, which I never used, to write an iconic Elvis quote. If you don't know what this references, please search up the quote on YouTube. It is very funny.

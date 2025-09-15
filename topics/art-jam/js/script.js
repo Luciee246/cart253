@@ -39,9 +39,10 @@ function draw() {
 function drawQuote() {
     //Quote
     fill("#45503B");
-    textSize(25);
-    textAlign(RIGHT);
-    text("Music is like oxygen to me!", width / 2, 30);
+    textSize(16);
+    textFont("Georgia");
+    textAlign(RIGHT, TOP);
+    text("Lord have mercy HUAGHH - Elvis Presley", width / 2, 30);
 }
 
 function drawHair() {
