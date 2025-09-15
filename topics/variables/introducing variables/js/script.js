@@ -11,13 +11,20 @@
  * Create  a canvas
 */
 function setup() {
-
+    createCanvas(640, 480);
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws a circle in the centre of the canvas
 */
 function draw() {
+    background(0);
 
+    // draw the circle
+    push();
+    fill(200, 100, 100);
+    noStroke();
+    ellipse(mouseX, mouseY, 100);
+    pop();
 }
