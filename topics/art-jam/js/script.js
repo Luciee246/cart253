@@ -37,7 +37,7 @@ function draw() {
     drawMicrophone();
 
     //Mouth movement when microphone is close (GOES UP TO 50 MAX)
-
+    // dist();, map();
 }
 
 
