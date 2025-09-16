@@ -79,6 +79,5 @@ function draw() {
     pop();
 
     //Make Mr. Furious shake
-
+    mrFurious.x += random(1, -1);
 }
-
