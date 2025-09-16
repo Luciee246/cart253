@@ -21,8 +21,25 @@ let mrFurious = {
     }
 };
 
-let skyShade = 0;
+// A bird that will annoy Mr. Furious
+let bird = {
+    x: 0,
+    y: 50,
+    sizeX: 40,
+    sizeY: 30,
+    fill: {
+        r: 255,
+        g: 222,
+        b: 33
+    }
+};
 
+// Frame rate
+let frameRate = 2;
+// The sky shade
+let skyShade = 0;
+// The bird's x position
+let birdX = 0;
 
 /**
  * Create the canvas
@@ -52,5 +69,16 @@ function draw() {
     //Make Mr. Furious become redder
     mrFurious.fill.g -= 2;
     mrFurious.fill.b -= 2;
+
+    //Add a bird that annoys the s**t out of Mr. Furious
+    push();
+    noStroke();
+    fill(bird.fill.r, bird.fill.g, bird.fill.b);
+    ellipse(birdX, bird.y, bird.sizeX, bird.sizeY);
+    birdX += frameRate;
+    pop();
+
+    //Make Mr. Furious shake
+
 }
 
