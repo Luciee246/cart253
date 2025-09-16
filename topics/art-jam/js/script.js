@@ -35,6 +35,8 @@ function draw() {
 
     //Microphone
     drawMicrophone();
+
+    //Mouth movement when microphone is close
 }
 
 
