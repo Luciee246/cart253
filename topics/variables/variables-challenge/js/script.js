@@ -21,11 +21,15 @@ let mrFurious = {
     }
 };
 
+let skyShade = 0;
+
+
 /**
  * Create the canvas
  */
 function setup() {
     createCanvas(400, 400);
+
 }
 
 /**
@@ -33,6 +37,10 @@ function setup() {
  */
 function draw() {
     background(160, 180, 200);
+
+    //Make the sky darker
+    skyShade += 1;
+    background(160 - skyShade, 180 - skyShade, 200 - skyShade);
 
     // Draw Mr. Furious as a coloured circle
     push();
@@ -45,3 +53,4 @@ function draw() {
     mrFurious.fill.g -= 2;
     mrFurious.fill.b -= 2;
 }
+
