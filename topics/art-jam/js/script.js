@@ -37,6 +37,8 @@ function draw() {
     drawMicrophone();
 
     //Mouth movement when microphone is close
+
+    //constrain the microphone to the canvas size, and constrain the mouth movement to a certain size
 }
 
 
