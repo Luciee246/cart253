@@ -36,10 +36,7 @@ function draw() {
     //Microphone
     drawMicrophone();
 
-    //Mouth movement when microphone is close
-
-
-    //Constrain the mouth movement to a certain size
+    //Mouth movement when microphone is close (GOES UP TO 50 MAX)
 
 }
 
@@ -96,11 +93,11 @@ function drawGlasses() {
 }
 
 function drawMouth() {
-    //Mouth
+    //Mouth (GOES UP TO 50 WHEN THE MIC IS CLOSE)
     push();
     fill("#FF8886");
     noStroke();
-    ellipse(320, 300, 50, 50);
+    ellipse(320, 300, 20, 20);
     pop();
 }
 
