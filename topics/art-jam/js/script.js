@@ -14,7 +14,6 @@
 */
 function setup() {
     createCanvas(640, 480);
-
 }
 
 /**
@@ -33,6 +32,9 @@ function draw() {
     drawGlasses();
     drawMouth();
     drawClothes();
+
+    //Microphone
+    drawMicrophone();
 }
 
 
@@ -102,5 +104,16 @@ function drawClothes() {
     noStroke();
     fill("#45503B");
     rect(170, 390, 300, 200, 50);
+    pop();
+}
+
+function drawMicrophone() {
+    //Microphone
+    push();
+    noStroke();
+    fill("#000000");
+    rect(mouseX, mouseY, 20, 100, 10);
+    fill("#BBBBBB");
+    ellipse(mouseX + 10, mouseY, 40, 40);
     pop();
 }
