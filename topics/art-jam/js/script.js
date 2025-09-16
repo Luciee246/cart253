@@ -39,7 +39,7 @@ function draw() {
     //Mouth movement when microphone is close
 
 
-    //Constrain the microphone to the canvas size, and constrain the mouth movement to a certain size
+    //Constrain the mouth movement to a certain size
 
 }
 
@@ -117,6 +117,7 @@ function drawMicrophone() {
     //Microphone
     push();
     noStroke();
+    noCursor();
     fill("#000000");
     rect(mouseX, mouseY, 20, 100, 10);
     fill("#BBBBBB");
