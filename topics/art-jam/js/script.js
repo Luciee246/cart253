@@ -73,8 +73,8 @@ function drawEyes() {
     //Eyes
     push();
     fill("#2E1503");
-    ellipse(280, 220, 30, 50);
-    ellipse(360, 220, 30, 50);
+    ellipse(275, 220, 20, 40);
+    ellipse(365, 220, 20, 40);
     pop();
 }
 
