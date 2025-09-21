@@ -36,8 +36,6 @@ function draw() {
     //Microphone
     drawMicrophone();
 
-    //Mouth movement when microphone is close (GOES UP TO 50 MAX)
-    // dist();, map();
 }
 
 
@@ -93,11 +91,15 @@ function drawGlasses() {
 }
 
 function drawMouth() {
-    //Mouth (GOES UP TO 50 WHEN THE MIC IS CLOSE)
+    //Mouth
     push();
     fill("#FF8886");
     noStroke();
-    ellipse(320, 300, 20, 20);
+    // d = distance between mouse and center of mouth
+    let d = dist(mouseX, mouseY, 320, 300);
+    let mouthSize = map(d, 0, 300, 50, 20);
+    mouthSize = constrain(mouthSize, 20, 50);
+    ellipse(320, 300, mouthSize, mouthSize);
     pop();
 }
 
