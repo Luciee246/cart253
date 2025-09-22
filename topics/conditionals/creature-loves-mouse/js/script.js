@@ -62,8 +62,6 @@ function checkInput() {
         // If neither is pressed, the creature is bored
         creature.fill = creature.fills.bored;
     }
-
-
 }
 
 /**
