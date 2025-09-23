@@ -25,7 +25,7 @@ const user = {
  */
 function setup() {
     createCanvas(400, 400);
-}
+};
 
 /**
  * Move the user circle, check for overlap, draw the two circles
@@ -39,8 +39,10 @@ function draw() {
     // Draw the user and puck
     drawUser();
     drawPuck();
+
+    // Move the puck with the user circle
     movePuck();
-}
+};
 
 /**
  * Sets the user position to the mouse position
@@ -48,7 +50,7 @@ function draw() {
 function moveUser() {
     user.x = mouseX;
     user.y = mouseY;
-}
+};
 
 /**
  * Displays the user circle
@@ -59,7 +61,7 @@ function drawUser() {
     fill(user.fill);
     ellipse(user.x, user.y, user.size);
     pop();
-}
+};
 
 /**
  * Displays the puck circle
@@ -70,12 +72,25 @@ function drawPuck() {
     fill(puck.fill);
     ellipse(puck.x, puck.y, puck.size);
     pop();
-}
+};
+
 
 /** Moves the puck if the user circle is overlapping it
  */
 function movePuck() {
     // Calcuate distance between mouse and puck
-    d = dist(user.x, user.y, puck.x, puck.y);
-
+    const d = dist(user.x, user.y, puck.x, puck.y);
+    if (d < user.size / 2 + puck.size / 2) {
+        if (puck.x > user.x) {
+            puck.x += 1
+        }
+        if (puck.x < user.x)
+            puck.x -= 1
+        if (puck.y > user.y) {
+            puck.y += 1
+        }
+        if (puck.y < user.y) {
+            puck.y -= 1
+        }
+    }
 }
