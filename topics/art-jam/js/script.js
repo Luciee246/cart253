@@ -20,7 +20,7 @@ let mySound;
 let hasSoundPlayed = false;
 
 function preload() {
-    mySound = loadSound('/assets/sounds/With you - Lucie Soussana.mp3')
+    mySound = loadSound('assets/sounds/With-you-LucieSoussana.mp3')
 }
 
 function mousePressed() {
