@@ -16,6 +16,20 @@ function setup() {
     createCanvas(640, 480);
 }
 
+let mySound;
+let hasSoundPlayed = false;
+
+function preload() {
+    mySound = loadSound('/assets/sounds/With you - Lucie Soussana.mp3')
+}
+
+function mousePressed() {
+    if (!mySound.isPlaying() && !hasSoundPlayed) {
+        mySound.play();
+        hasSoundPlayed = true;
+    }
+}
+
 /**
  * Draws a quote, my face and a moveable microphone
 */
@@ -36,6 +50,15 @@ function draw() {
     //Microphone
     drawMicrophone();
 
+    //Raising and lowering sound
+    soundVol();
+
+}
+
+function soundVol() {
+    let d = dist(mouseX, mouseY, 320, 300);
+    let newVolume = map(d, 100, 0, 0, 1, true);
+    outputVolume(newVolume);
 }
 
 
