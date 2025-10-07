@@ -26,3 +26,13 @@ It would be cool if the mouse could control the eyes in a circular motion. Inste
 This was super fun to interact with! I moved my cursor really fast on the screen to make the eyes go crazy. It was funny :)
 
 
+Philippe Beauchemin:
+https://philippe-bn.github.io/cart253/topics/art-jam-assignment/ 
+
+Once I think I figured out everything there is to do in this work, I find a lot more things to interact with :)
+
+This was a super cool work. I think the color palette was interesting, and once again, the fact that you can interact with literally everything is super cool. I found the arm movement to be the coolest; it didn't move as fast as the cursor did, which made the arm animation look very smooth.
+
+The only thing I would fix is that the words could be combined with the emojis so as not to cover your name when you bring the emojis up. 
+
+The coding is super organized, and the comments are very clear. The function calls are also very clear. It’s Simple, Readable, And Easy Logic :)
