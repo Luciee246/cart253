@@ -53,15 +53,19 @@ const firefly = {
 };
 
 /**
- * Creates the canvas and initializes the fly
+ * Creates the canvas and initializes the fly and firefly
  */
 function setup() {
     createCanvas(640, 480);
 
     // Give the fly its first random position
     resetFly();
-}
+    // Give the firefly its first random position
+    resetFirefly();
+};
 
+/** Draws the background, fly, firefly, and frog
+ */
 function draw() {
     background("#00b4d8");
     moveFly();
@@ -81,6 +85,7 @@ function draw() {
 function moveFly() {
     // Move the fly
     fly.x += fly.speed;
+    fly.y += sin(frameCount * 0.1) * 2; // Small sine wave movement
     // Handle the fly going off the canvas
     if (fly.x > width) {
         resetFly();
@@ -113,6 +118,7 @@ function resetFly() {
 function moveFirefly() {
     // Move the firefly
     firefly.x += firefly.speed;
+    firefly.y += sin(frameCount * 0.2) * 3; // Slightly bigger sine wave movement
     // Handle the firefly going off the canvas
     if (firefly.x > width) {
         resetFirefly();

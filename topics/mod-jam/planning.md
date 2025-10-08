@@ -16,15 +16,15 @@ The experience:
 
 Basic things to do:
 
-- Make a start screen with start, instructions, and customize button
+- Start screen: start, instructions, and customize button
 - Add a firefly // DONE
 - Add a strike variable
 - Fly moves in a small sine
 - Flies and fireflies speed up over time
 - Sky gets darker = Game gets harder
-- Find different hats to add to the frog
+- Find different hats to add to the frog // DONE
 - Add sound for flies
-- Lose screen: Fun facts about frogs
+- Lose screen: try again button and fun facts about frogs
 
 
 Questions:
