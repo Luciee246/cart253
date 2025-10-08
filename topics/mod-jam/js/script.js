@@ -43,6 +43,15 @@ const fly = {
     speed: 3
 };
 
+// Our firefly
+// Has a position, size, and speed of horizontal movement
+const firefly = {
+    x: 0,
+    y: 200, // Will be random
+    size: 10,
+    speed: 4
+};
+
 /**
  * Creates the canvas and initializes the fly
  */
@@ -54,9 +63,11 @@ function setup() {
 }
 
 function draw() {
-    background("#87ceeb");
+    background("#00b4d8");
     moveFly();
     drawFly();
+    moveFirefly();
+    drawFirefly();
     moveFrog();
     moveTongue();
     drawFrog();
@@ -93,6 +104,38 @@ function drawFly() {
 function resetFly() {
     fly.x = 0;
     fly.y = random(0, 300);
+}
+
+/**
+ * Moves the firefly according to its speed
+ * Resets the firefly if it gets all the way to the right
+ */
+function moveFirefly() {
+    // Move the firefly
+    firefly.x += firefly.speed;
+    // Handle the firefly going off the canvas
+    if (firefly.x > width) {
+        resetFirefly();
+    }
+}
+
+/**
+ * Draws the firefly as a black circle
+ */
+function drawFirefly() {
+    push();
+    noStroke();
+    fill("#ffed29");
+    ellipse(firefly.x, firefly.y, firefly.size);
+    pop();
+}
+
+/**
+ * Resets the firefly to the left with a random y
+ */
+function resetFirefly() {
+    firefly.x = 0;
+    firefly.y = random(0, 300);
 }
 
 /**
@@ -136,21 +179,21 @@ function moveTongue() {
 function drawFrog() {
     // Draw the tongue tip
     push();
-    fill("#ff0000");
+    fill("#e9658d");
     noStroke();
     ellipse(frog.tongue.x, frog.tongue.y, frog.tongue.size);
     pop();
 
     // Draw the rest of the tongue
     push();
-    stroke("#ff0000");
+    stroke("#e9658d");
     strokeWeight(frog.tongue.size);
     line(frog.tongue.x, frog.tongue.y, frog.body.x, frog.body.y);
     pop();
 
     // Draw the frog's body
     push();
-    fill("#00ff00");
+    fill("#6fc276");
     noStroke();
     ellipse(frog.body.x, frog.body.y, frog.body.size);
     pop();

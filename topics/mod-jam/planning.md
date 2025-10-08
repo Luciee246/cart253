@@ -17,7 +17,7 @@ The experience:
 Basic things to do:
 
 - Make a start screen with start, instructions, and customize button
-- Add a firefly
+- Add a firefly // DONE
 - Add a strike variable
 - Fly moves in a small sine
 - Flies and fireflies speed up over time
@@ -50,6 +50,7 @@ Questions:
     - Start screen
     - Game itself
     - Game over screen has fun facts about frogs (find 5 facts)
+
 
 - 5 facts:
     - The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly. They tumble and land awkwardly instead (search it up!)
