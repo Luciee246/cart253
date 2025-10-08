@@ -16,7 +16,7 @@ The experience:
 
 Basic things to do:
 
-- Make a start screen, start, instructions, and customize button
+- Make a start screen with start, instructions, and customize button
 - Add a firefly
 - Add a strike variable
 - Fly moves in a small sine
@@ -50,6 +50,14 @@ Questions:
     - Start screen
     - Game itself
     - Game over screen has fun facts about frogs (find 5 facts)
+
+- 5 facts:
+    - The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly. They tumble and land awkwardly instead (search it up!)
+    - A frog's tongue is 3 times longer than its body
+    - Frogs breathe through their skin in addition to lungs
+    - The golden dart frog is the most poisonous frog in the world. One drop of its toxin can kill 10 full grown men
+    - Some frogs push their eyeballs down their throats to push food down their digestive system
+
 
 ## The program starts to form....
 

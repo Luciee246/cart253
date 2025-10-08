@@ -21,3 +21,4 @@ A game about catching flies.
 
 - Attributes:
     - Used https://p5js.org/
+    - Sounds from https://freesound.org/
