@@ -57,6 +57,7 @@ let brightness = 100; // Fully bright
 let fliesEaten = 0;
 const minBrightness = 40; // Minimum brightness
 
+
 /**
  * Creates the canvas and initializes the fly and firefly
  */
@@ -226,6 +227,12 @@ function checkTongueFlyOverlap() {
     const d = dist(frog.tongue.x, frog.tongue.y, fly.x, fly.y);
     // Check if it's an overlap
     const eaten = (d < frog.tongue.size / 2 + fly.size / 2);
+
+    // Get distance from tongue to firefly
+    const dFirefly = dist(frog.tongue.x, frog.tongue.y, firefly.x, firefly.y);
+    // Check if it's an overlap
+    const eatenFirefly = (dFirefly < frog.tongue.size / 2 + firefly.size / 2);
+
     if (eaten) {
         // Reset the fly
         resetFly();
@@ -238,6 +245,9 @@ function checkTongueFlyOverlap() {
         firefly.speed += 0.2;
         // Decrease brightness when fly is eaten
         brightness = max(brightness - 5, minBrightness);
+    } else if (eatenFirefly) {
+        resetFirefly();
+        frog.tongue.state = "inbound";
     }
 }
 

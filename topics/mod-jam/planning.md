@@ -16,14 +16,16 @@ The experience:
 
 Basic things to do:
 
-- Start screen: start, instructions, and customize button
-- Add a firefly // DONE
+- Start screen: start and instructions button
 - Add a strike variable
+- Add sound for flies
+- Lose screen: try again button and fun facts about frogs
+
+- Add a firefly // DONE
 - Fly moves in a small sine // DONE
 - Flies and fireflies speed up over time // DONE
 - Sky gets darker = Game gets harder // DONE
-- Add sound for flies
-- Lose screen: try again button and fun facts about frogs
+
 
 
 Questions:
@@ -36,8 +38,8 @@ Questions:
     - Firefly moves faster than the fly, by 1?
     - Also in a sine wave
 - Does the game get harder?
-    - Sky gets darker by 0.1 for every 2 flies eaten
-    - Fly and firefly move faster by 0.1 for every 2 flies eaten
+    - Sky gets darker by x for every x flies eaten
+    - Fly and firefly move faster by x for every x flies eaten
 - What happens if the user doesn't catch the fly?
     - 1 strike
     - 3 strikes and you're out

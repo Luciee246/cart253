@@ -22,3 +22,4 @@ A game about catching flies.
 - Attributes:
     - Used https://p5js.org/
     - Sounds from https://freesound.org/
+    - Image from https://www.freeiconspng.com/images/pepe-png
