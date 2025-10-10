@@ -15,16 +15,6 @@
 
 "use strict";
 
-let nelsonhahaSound;
-let owSound;
-/**
- * Preload the audio files
- */
-function preload() {
-    // Audios for flies being eaten and missed
-    nelsonhahaSound = loadSound("assets/sounds/nelsonhaha.wav");
-    owSound = loadSound("assets/sounds/ow.wav");
-}
 
 // Our frog
 const frog = {
@@ -63,6 +53,10 @@ const firefly = {
     speed: 4
 };
 
+let brightness = 100; // Fully bright
+let fliesEaten = 0;
+const minBrightness = 40; // Minimum brightness
+
 /**
  * Creates the canvas and initializes the fly and firefly
  */
@@ -73,8 +67,6 @@ function setup() {
     resetFly();
     // Give the firefly its first random position
     resetFirefly();
-    // Starts the audio files
-    userStartAudio();
 };
 
 /** Draws the background, fly, firefly, and frog
@@ -91,15 +83,11 @@ function draw() {
     checkTongueFlyOverlap();
 }
 
-let brightness = 100; // Fully bright
-let fliesEaten = 0;
-
 function drawBackground() {
     // Draw the background
     push();
     colorMode(HSB);
     background(200, 100, brightness);
-    // 200 is the hue, 100 is the saturation
     pop();
 }
 
@@ -245,15 +233,11 @@ function checkTongueFlyOverlap() {
         frog.tongue.state = "inbound";
         // Increase the flies eaten count
         fliesEaten++;
+        // Increase speed of fly and firefly
+        fly.speed += 0.1;
+        firefly.speed += 0.2;
         // Decrease brightness when fly is eaten
-        brightness = max(brightness - 0.1, 40); // Minimum brightness of 40
-        // Play sound when fly is eaten
-        nelsonhahaSound.play();
-        //
-    }
-    else {
-        // Play sound when fly is missed
-        owSound.play();
+        brightness = max(brightness - 5, minBrightness);
     }
 }
 

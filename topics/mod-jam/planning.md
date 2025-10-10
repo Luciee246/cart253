@@ -20,8 +20,8 @@ Basic things to do:
 - Add a firefly // DONE
 - Add a strike variable
 - Fly moves in a small sine // DONE
-- Flies and fireflies speed up over time
-- Sky gets darker = Game gets harder
+- Flies and fireflies speed up over time // DONE
+- Sky gets darker = Game gets harder // DONE
 - Add sound for flies
 - Lose screen: try again button and fun facts about frogs
 
@@ -32,7 +32,7 @@ Questions:
     - Start button
     - Instructions button
     - Frog tongue comes up and clicks the button you want
-- Does the firefly move differet than the fly?
+- Does the firefly move different than the fly?
     - Firefly moves faster than the fly, by 1?
     - Also in a sine wave
 - Does the game get harder?
