@@ -48,6 +48,7 @@ Questions:
     - You lose a strike if you eat 5 flies in a row
 - What sound for the flies?
     - "Ow" when they're eaten, "HAHA" when they're not, Nelson Muntz style
+    - For fireflies: Buzzer sound when eaten
 - Each screen?
     - Start screen
     - Game itself
