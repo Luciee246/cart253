@@ -15,6 +15,8 @@
 
 "use strict";
 
+//Start in title screen, click start to begin
+let gameState = "title"; // Can be: title, playing, gameover
 
 // Our frog
 const frog = {
@@ -73,15 +75,23 @@ function setup() {
 /** Draws the background, fly, firefly, and frog
  */
 function draw() {
-    drawBackground();
-    moveFly();
-    drawFly();
-    moveFirefly();
-    drawFirefly();
-    moveFrog();
-    moveTongue();
-    drawFrog();
-    checkTongueFlyOverlap();
+    if (gameState === "title") {
+        title();
+    }
+    else if (gameState === "playing") {
+        drawBackground();
+        moveFly();
+        drawFly();
+        moveFirefly();
+        drawFirefly();
+        moveFrog();
+        moveTongue();
+        drawFrog();
+        checkTongueFlyOverlap();
+    }
+    else if (gameState === "gameover") {
+        // Game over screen code would go here
+    }
 }
 
 function drawBackground() {
@@ -258,4 +268,39 @@ function mousePressed() {
     if (frog.tongue.state === "idle") {
         frog.tongue.state = "outbound";
     }
+}
+
+/**
+ * Draws the start screen with a title and instructions
+ */
+function title() {
+    push();
+    // Draws a dark green background
+    fill("#154228");
+    rect(0, 0, width, height);
+    // Draws the title and instructions
+    fill("#6b8e23");
+    textAlign(CENTER, CENTER);
+    textFont("monospace");
+    textSize(32);
+    text("Frogfrogfrog but better :)", width / 2, height / 2 - 40);
+    textFont("monospace");
+    textSize(16);
+    text("Move the frog with your mouse", width / 2, height / 2);
+    text("Click to launch the tongue", width / 2, height / 2 + 20);
+    text("Careful! Don't eat the fireflies and don't miss the flies!", width / 2, height / 2 + 40);
+    // Draws the start button
+    noStroke();
+    fill("#0a3622");
+    rect(width / 2 - 75, height / 2 + 60, 150, 40);
+    fill("#6b8e23");
+    textAlign(CENTER, CENTER);
+    textFont("monospace");
+    text("F R O G to start!", width / 2, height / 2 + 80);
+    // Starts the game by spelling out "FROG"
+    if (keyIsPressed && (key === 'G' || key === 'g')) {
+        gameState = "playing";
+        frog.tongue.state = "idle";
+    }
+    pop();
 }

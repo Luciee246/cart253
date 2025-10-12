@@ -23,3 +23,5 @@ A game about catching flies.
     - Used https://p5js.org/
     - Sounds from https://freesound.org/
     - Image from https://www.freeiconspng.com/images/pepe-png
+    - Start screen code from your Musical Juggling Simulation https://editor.p5js.org/pippinbarr/sketches/nGpY2pwOR
+    - Game over code from our 

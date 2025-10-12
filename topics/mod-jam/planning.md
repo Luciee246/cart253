@@ -16,11 +16,12 @@ The experience:
 
 Basic things to do:
 
-- Start screen: start and instructions button
+
 - Add a strike variable
 - Add sound for flies
 - Lose screen: try again button and fun facts about frogs
 
+- Start screen: start and instructions // DONE
 - Add a firefly // DONE
 - Fly moves in a small sine // DONE
 - Flies and fireflies speed up over time // DONE
@@ -32,8 +33,8 @@ Questions:
 
 - What's on the start screen?
     - Start button
-    - Instructions button
-    - Frog tongue comes up and clicks the button you want
+    - Instructions
+    - Frog tongue comes up and clicks the start button?
 - Does the firefly move different than the fly?
     - Firefly moves faster than the fly, by 1?
     - Also in a sine wave
