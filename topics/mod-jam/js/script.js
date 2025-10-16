@@ -15,8 +15,17 @@
 
 "use strict";
 
-//Start in title screen, click start to begin
+//Start in title screen, type "f r o g" to begin
 let gameState = "title"; // Can be: title, playing, gameover
+
+// Pepe image variables
+let pepeImg;
+let showPepe = false;
+
+// Preloads the pepe image and the sounds
+function preload() {
+    pepeImg = loadImage("assets/images/pepefrog.png");
+}
 
 // Our frog
 const frog = {
@@ -72,7 +81,7 @@ function setup() {
     resetFirefly();
 };
 
-/** Draws the background, fly, firefly, and frog
+/** Draws the background, fly, firefly, and frog depending on the game state
  */
 function draw() {
     if (gameState === "title") {
@@ -88,9 +97,14 @@ function draw() {
         moveTongue();
         drawFrog();
         checkTongueFlyOverlap();
+
+        // Show pepe if the tongue misses or hits a firefly, 3 max then game over
+        if (showPepe && pepeImg) {
+            image(pepeImg, width - 150, height - 60, 50, 50);
+        }
     }
     else if (gameState === "gameover") {
-        // Game over screen code would go here
+        gameOver();
     }
 }
 
@@ -230,7 +244,7 @@ function drawFrog() {
 }
 
 /**
- * Handles the tongue overlapping the fly
+ * Handles the tongue overlapping the fly and firefly
  */
 function checkTongueFlyOverlap() {
     // Get distance from tongue to fly
@@ -258,6 +272,11 @@ function checkTongueFlyOverlap() {
     } else if (eatenFirefly) {
         resetFirefly();
         frog.tongue.state = "inbound";
+        showPepe = true;
+    }
+    // If tongue misses fly
+    else if (fly.x === 0) {
+        showPepe = true;
     }
 }
 
@@ -299,6 +318,35 @@ function title() {
     text("F R O G to start!", width / 2, height / 2 + 80);
     // Starts the game by spelling out "FROG"
     if (keyIsPressed && (key === 'G' || key === 'g')) {
+        gameState = "playing";
+        frog.tongue.state = "idle";
+    }
+    pop();
+}
+
+/**
+ * Draws the game over screen with the score with my favourite fact
+ */
+function gameOver() {
+    push();
+    // Draws a brown background
+    fill("#421e05");
+    rect(0, 0, width, height);
+    // Draws the game over text and score
+    fill("#ff6347");
+    textAlign(CENTER, CENTER);
+    textFont("monospace");
+    textSize(32);
+    text("TOO MANY FLIES!", width / 2, height / 2 - 40);
+    textFont("monospace");
+    textSize(16);
+    text(`You ate ${fliesEaten} flies!`, width / 2, height / 2);
+    // Shows my favourite frog fact
+    text("Fun fact! The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly. They tumble and land awkwardly instead (YouTube it!)", width / 2, height / 2 + 40);
+    // Restarts the game by spelling out "FROG"
+    text("F R O G to play again", width / 2, height / 2 + 20);
+    if (keyIsPressed && (key === 'G' || key === 'g')) {
+        resetGame();
         gameState = "playing";
         frog.tongue.state = "idle";
     }
