@@ -363,8 +363,21 @@ function gameOver() {
     text("F R O G to play again", width / 2, height / 2 + 20);
     if (keyIsPressed && (key === 'G' || key === 'g')) {
         resetGame();
-        gameState = "playing";
-        frog.tongue.state = "idle";
     }
     pop();
+}
+
+function resetGame() {
+    pepeCount = 0;
+    fliesEaten = 0;
+    fly.x = 0;
+    fly.y = random(0, 300);
+    fly.speed = 3;
+    firefly.x = 0;
+    firefly.y = random(0, 300);
+    firefly.speed = 4;
+    brightness = 100;
+    gameState = "playing";
+    frog.tongue.y = 480;
+    frog.tongue.state = "idle";
 }
