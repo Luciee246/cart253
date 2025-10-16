@@ -10,17 +10,16 @@ The initial idea:
 
 The experience:
 
-> The user controls a frog at the bottom of the screen, they can shoot out the frog's tongue and catch a fly which is moving on the screen. If the tongue hits the fly it gets eaten. If the frog eats a firefly, the user gets a strike. Three strikes and you're out!
+> The user controls a frog at the bottom of the screen, they can shoot out the frog's tongue and catch a fly which is moving on the screen. If the tongue hits the fly it gets eaten. If the frog eats a firefly or misses a fly, the user gets a strike. Three strikes and you're out! Type "frog" to start!
 
 ## Breaking it down
 
 Basic things to do:
 
 
-- Add a strike variable
-- Add sound for flies
-- Lose screen: try again button and fun facts about frogs
-
+- Add a strike variable // DONE
+- Add sound for flies // DONE
+- Lose screen: try again button and fun facts about frogs // DONE
 - Start screen: start and instructions // DONE
 - Add a firefly // DONE
 - Fly moves in a small sine // DONE
