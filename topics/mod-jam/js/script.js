@@ -21,10 +21,17 @@ let gameState = "title"; // Can be: title, playing, gameover
 // Pepe image variables
 let pepeImg;
 let pepeCount = 0; // How many pepes to show
+// Sound variables
+let nelsonSound;
+let owSound;
+let buzzerSound;
 
 // Preloads the pepe image and the sounds
 function preload() {
     pepeImg = loadImage("assets/images/pepefrog.png");
+    nelsonSound = loadSound("assets/sounds/nelsonhaha.mp3");
+    owSound = loadSound("assets/sounds/ow.mp3");
+    buzzerSound = loadSound("assets/sounds/buzzer.wav");
 }
 
 // Our frog
@@ -74,6 +81,7 @@ const minBrightness = 40; // Minimum brightness
  */
 function setup() {
     createCanvas(640, 480);
+    userStartAudio();
 
     // Give the fly its first random position
     resetFly();
@@ -300,14 +308,17 @@ function checkTongueFlyOverlap() {
         firefly.speed += 0.2;
         // Decrease brightness when fly is eaten
         brightness = max(brightness - 5, minBrightness);
+        owSound.play();
     } else if (eatenFirefly) {
         resetFirefly();
         frog.tongue.state = "inbound";
         pepeCount++;
+        buzzerSound.play();
     }
     // If tongue misses fly
     else if (fly.x === 0) {
         pepeCount++;
+        nelsonSound.play();
     }
 }
 

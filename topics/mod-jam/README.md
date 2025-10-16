@@ -16,7 +16,7 @@ A game about catching flies, avoiding fireflies, and surviving as long as you ca
     - Flies and fireflies speed up over time
     - Sky gets darker = Game gets harder
     - Added sound for flies and fireflies
-    - Lose screen: Fun facts about frogs
+    - Lose screen: Fun fact about frogs
 
 - Attributes:
     - Used https://p5js.org/
