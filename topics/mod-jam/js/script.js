@@ -353,14 +353,24 @@ function gameOver() {
     textAlign(CENTER, CENTER);
     textFont("monospace");
     textSize(32);
-    text("TOO MANY FLIES!", width / 2, height / 2 - 40);
+    text("TOO MUCH TOO MUCH!", width / 2, height / 2 - 100);
     textFont("monospace");
+    textSize(20);
+    text(`You ate ${fliesEaten} flies!`, width / 2, height / 2 - 60);
     textSize(16);
-    text(`You ate ${fliesEaten} flies!`, width / 2, height / 2);
-    // Shows my favourite frog fact
-    text("Fun fact! The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly. They tumble and land awkwardly instead (YouTube it!)", width / 2, height / 2 + 40);
+    text("Fun fact! The pumpkin toadlet is so small that their", width / 2, height / 2 + 20);
+    text("inner ear structure for balance does not allow them to jump properly.", width / 2, height / 2 + 40);
+    text("They tumble and land awkwardly instead (YouTube it!)", width / 2, height / 2 + 60);
+
+    // Draws the restart button
+    noStroke();
+    fill("#230101ff");
+    rect(width / 2 - 100, height / 2 + 80, 200, 40);
+    fill("#740e0eff");
+    textAlign(CENTER, CENTER);
+    textFont("monospace");
     // Restarts the game by spelling out "FROG"
-    text("F R O G to play again", width / 2, height / 2 + 20);
+    text("F R O G to play again", width / 2, height / 2 + 100);
     if (keyIsPressed && (key === 'G' || key === 'g')) {
         resetGame();
     }
