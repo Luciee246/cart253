@@ -20,7 +20,7 @@ let gameState = "title"; // Can be: title, playing, gameover
 
 // Pepe image variables
 let pepeImg;
-let showPepe = false;
+let pepeCount = 0; // How many pepes to show
 
 // Preloads the pepe image and the sounds
 function preload() {
@@ -97,15 +97,46 @@ function draw() {
         moveTongue();
         drawFrog();
         checkTongueFlyOverlap();
-
-        // Show pepe if the tongue misses or hits a firefly, 3 max then game over
-        if (showPepe && pepeImg) {
-            image(pepeImg, width - 150, height - 60, 50, 50);
-        }
+        addStrike();
     }
     else if (gameState === "gameover") {
         gameOver();
     }
+}
+
+/**
+ * Draws the start screen with a title and instructions
+ */
+function title() {
+    push();
+    // Draws a dark green background
+    fill("#154228");
+    rect(0, 0, width, height);
+    // Draws the title and instructions
+    fill("#6b8e23");
+    textAlign(CENTER, CENTER);
+    textFont("monospace");
+    textSize(32);
+    text("Frogfrogfrog but better :)", width / 2, height / 2 - 40);
+    textFont("monospace");
+    textSize(16);
+    text("Move the frog with your mouse", width / 2, height / 2);
+    text("Click to launch the tongue", width / 2, height / 2 + 20);
+    text("Careful! Don't eat the fireflies and don't miss the flies!", width / 2, height / 2 + 40);
+    // Draws the start button
+    noStroke();
+    fill("#0a3622");
+    rect(width / 2 - 75, height / 2 + 60, 150, 40);
+    fill("#6b8e23");
+    textAlign(CENTER, CENTER);
+    textFont("monospace");
+    text("F R O G to start!", width / 2, height / 2 + 80);
+    // Starts the game by spelling out "FROG"
+    if (keyIsPressed && (key === 'G' || key === 'g')) {
+        gameState = "playing";
+        frog.tongue.state = "idle";
+    }
+    pop();
 }
 
 function drawBackground() {
@@ -272,11 +303,31 @@ function checkTongueFlyOverlap() {
     } else if (eatenFirefly) {
         resetFirefly();
         frog.tongue.state = "inbound";
-        showPepe = true;
+        pepeCount++;
     }
     // If tongue misses fly
     else if (fly.x === 0) {
-        showPepe = true;
+        pepeCount++;
+    }
+}
+
+/**
+ * Adds a strike (pepe) image to the screen
+ */
+function addStrike() {
+    if (pepeCount >= 1 && pepeImg) {
+        image(pepeImg, width - 150, height - 60, 50, 50);
+    }
+    // Adds 1 pepe everytime the tongue misses or hits a firefly
+    if (pepeCount >= 2 && pepeImg) {
+        image(pepeImg, width - 100, height - 60, 50, 50);
+    }
+    if (pepeCount >= 3 && pepeImg) {
+        image(pepeImg, width - 50, height - 60, 50, 50);
+    }
+    // If there are 3 strikes, it's game over
+    if (pepeCount >= 3) {
+        gameState = "gameover";
     }
 }
 
@@ -287,41 +338,6 @@ function mousePressed() {
     if (frog.tongue.state === "idle") {
         frog.tongue.state = "outbound";
     }
-}
-
-/**
- * Draws the start screen with a title and instructions
- */
-function title() {
-    push();
-    // Draws a dark green background
-    fill("#154228");
-    rect(0, 0, width, height);
-    // Draws the title and instructions
-    fill("#6b8e23");
-    textAlign(CENTER, CENTER);
-    textFont("monospace");
-    textSize(32);
-    text("Frogfrogfrog but better :)", width / 2, height / 2 - 40);
-    textFont("monospace");
-    textSize(16);
-    text("Move the frog with your mouse", width / 2, height / 2);
-    text("Click to launch the tongue", width / 2, height / 2 + 20);
-    text("Careful! Don't eat the fireflies and don't miss the flies!", width / 2, height / 2 + 40);
-    // Draws the start button
-    noStroke();
-    fill("#0a3622");
-    rect(width / 2 - 75, height / 2 + 60, 150, 40);
-    fill("#6b8e23");
-    textAlign(CENTER, CENTER);
-    textFont("monospace");
-    text("F R O G to start!", width / 2, height / 2 + 80);
-    // Starts the game by spelling out "FROG"
-    if (keyIsPressed && (key === 'G' || key === 'g')) {
-        gameState = "playing";
-        frog.tongue.state = "idle";
-    }
-    pop();
 }
 
 /**
