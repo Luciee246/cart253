@@ -145,3 +145,4 @@ function moveBug() {
         bug.destination.x = mouseX;
         bug.destination.y = mouseY;
     }
+}
