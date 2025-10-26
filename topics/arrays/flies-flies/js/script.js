@@ -14,17 +14,27 @@ let flies = [
     {
         x: 100,
         y: 125,
-        size: 10
+        size: 10,
+        buzziness: 4
     },
     {
         x: 160,
         y: 170,
-        size: 14
+        size: 14,
+        buzziness: 2
     },
     {
         x: 180,
         y: 50,
-        size: 5
+        size: 5,
+        buzziness: 3
+    },
+    // MEGAFLY HAS JOINED THE PARTY.
+    {
+        x: 60,
+        y: 50,
+        size: 100,
+        buzziness: 1
     }
 ];
 
@@ -44,8 +54,17 @@ function draw() {
 
     // Display each fly in the array
     for (let fly of flies) {
+        moveFly(fly);
         drawFly(fly);
     }
+}
+
+/**
+ * Moves a fly randomly according to its buzziness
+ */
+function moveFly(fly) {
+    fly.x += random(-fly.buzziness, fly.buzziness);
+    fly.y += random(-fly.buzziness, fly.buzziness);
 }
 
 /**
