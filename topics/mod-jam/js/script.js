@@ -26,6 +26,25 @@ let nelsonSound;
 let owSound;
 let buzzerSound;
 
+// The facts themselves as an array of strings
+const speech = [
+    "Fun fact! The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly.They tumble and land awkwardly instead. (YouTube it!)",
+    "Some frogs push their eyeballs down their throats to push food down their digestive systems.",
+    "The poison dart frog's toxin is so strong that a single drop can kill 10 fully grown men."
+];
+
+// Which fact are we displaying?
+let speechIndex = 0;
+// Dialog box specification
+let box = {
+    x: 50,
+    y: 300,
+    width: 300,
+    height: 80,
+    padding: 20,
+    fontSize: 18
+};
+
 // Preloads the pepe image and the sounds
 function preload() {
     pepeImg = loadImage("assets/images/pepefrog.png");
@@ -109,6 +128,8 @@ function draw() {
     }
     else if (gameState === "gameover") {
         gameOver();
+        // Display the facts
+        showFacts();
     }
 }
 
@@ -349,6 +370,13 @@ function mousePressed() {
     if (frog.tongue.state === "idle") {
         frog.tongue.state = "outbound";
     }
+    //Next line
+    speechIndex++;
+    //Wrap around if at the end
+    if (speechIndex >= speech.length) {
+        // Start over
+        speechIndex = 0;
+    }
 }
 
 /**
@@ -368,11 +396,7 @@ function gameOver() {
     textFont("monospace");
     textSize(20);
     text(`You ate ${fliesEaten} flies!`, width / 2, height / 2 - 60);
-    // Fun fact
-    textSize(16);
-    text("Fun fact! The pumpkin toadlet is so small that their", width / 2, height / 2 + 20);
-    text("inner ear structure for balance does not allow them to jump properly.", width / 2, height / 2 + 40);
-    text("They tumble and land awkwardly instead (YouTube it!)", width / 2, height / 2 + 60);
+    pop();
 
     // Draws the restart button
     noStroke();
@@ -386,6 +410,26 @@ function gameOver() {
     if (keyIsPressed && (key === 'G' || key === 'g')) {
         resetGame();
     }
+    pop();
+}
+
+/**
+ * Display the facts in a dialog box
+ */
+function showFacts() {
+    // The background box
+    push();
+    fill("#421e05");
+    stroke("#ff6247");
+    strokeWeight(3);
+    rect(box.x, box.y, box.width, box.height);
+    pop();
+
+    // The text
+    push();
+    fill("#ff6247");
+    textSize(18);
+    text(speech[speechIndex], box.x + box.padding, box.y + box.padding, box.width - 2 * box.padding, box.height - 2 * box.padding);
     pop();
 }
 
