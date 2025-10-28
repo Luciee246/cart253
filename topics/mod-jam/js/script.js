@@ -20,7 +20,7 @@ let gameState = "title"; // Can be: title, playing, gameover
 
 // Pepe image variables
 let pepeImg;
-let pepeCount = 0; // How many pepes to show
+let pepeCount = 0; // How many pepes to show at first
 // Sound variables
 let nelsonSound;
 let owSound;
