@@ -1,4 +1,4 @@
-# Bouncy balls!!!
+# Jiggly balls!!!
 
 Chloé Guerrin, Yelena Arakelian, Scarlett Arriola, Lucie Soussana
 
@@ -6,7 +6,7 @@ Chloé Guerrin, Yelena Arakelian, Scarlett Arriola, Lucie Soussana
 
 ## Description
 
-> *Bouncy balls!!!* is a simulator experience that allows for multiple balls to bounce over the screen.
+> *Jiggly balls!!!* is a simulator experience that allows for multiple balls to jiggle over the screen.
 
 ## Screenshot(s)
 

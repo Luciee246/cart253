@@ -1,12 +1,12 @@
 /**
- * Bouncy balls!!!
+ * Jiggly balls!!!
  * Chloé Guerrin, Yelena Arakelian, Scarlett Arriola, Lucie Soussana
  * 
- * A ball that bounces around on the canvas
+ * A ball that jiggles around on the canvas
  */
 
 "use strict";
-let ball = [];
+let balls = [];
 
 /**
  * Create the canvas and the ball
@@ -21,7 +21,7 @@ function setup() {
  */
 function createBall() {
     // Create a ball object with appropriate properties
-    const newBall = {
+    const ball = {
         // Position and dimensions
         x: random(0, width),
         y: random(0, height),
@@ -34,7 +34,7 @@ function createBall() {
             y: random(-5, 5)
         }
     };
-    return newBall;
+    return ball;
 }
 
 /**
@@ -42,10 +42,6 @@ function createBall() {
  */
 function draw() {
     background("#87ceeb");
-
-    moveBall();
-    bounceBall();
-    drawBall();
 
     // Go through all the balls
     for (let ball of balls) {
@@ -59,8 +55,8 @@ function draw() {
  * Moves the ball according to its velocity
  */
 function moveBall(ball) {
-    ball.x += random(-ball.velocity, ball.velocity);
-    ball.y += random(-ball.velocity, ball.velocity);
+    ball.x += random(-ball.velocity.x, ball.velocity.x);
+    ball.y += random(-ball.velocity.y, ball.velocity.y);
 }
 
 /**
@@ -96,9 +92,9 @@ function drawBall(ball) {
 /**
  * Adds a random ball on a key press
  */
-function keyPressed() {
-    // Create a new fly
+function mousePressed() {
+    // Create a new ball
     const newBall = createBall();
     // Add it to the array
-    ball.push(newBall);
+    balls.push(newBall);
 }
