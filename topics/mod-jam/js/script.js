@@ -28,20 +28,20 @@ let buzzerSound;
 
 // The facts themselves as an array of strings
 const speech = [
-    "Fun fact! The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly.They tumble and land awkwardly instead. (YouTube it!)",
+    "The pumpkin toadlet is so small that their inner ear structure for balance does not allow them to jump properly. They tumble and land awkwardly instead. (YouTube it!)",
     "Some frogs push their eyeballs down their throats to push food down their digestive systems.",
     "The poison dart frog's toxin is so strong that a single drop can kill 10 fully grown men."
 ];
 
 // Which fact are we displaying?
 let speechIndex = 0;
-// Dialog box specification
+// Fact box specification
 let box = {
-    x: 50,
-    y: 300,
-    width: 300,
-    height: 80,
-    padding: 20,
+    x: 120,
+    y: 200,
+    width: 400,
+    height: 100,
+    padding: 8,
     fontSize: 18
 };
 
@@ -398,6 +398,7 @@ function gameOver() {
     text(`You ate ${fliesEaten} flies!`, width / 2, height / 2 - 60);
     pop();
 
+    push();
     // Draws the restart button
     noStroke();
     fill("#230101ff");
@@ -406,6 +407,7 @@ function gameOver() {
     textAlign(CENTER, CENTER);
     textFont("monospace");
     // Restarts the game by spelling out "FROG"
+    textSize(16);
     text("F R O G to play again", width / 2, height / 2 + 100);
     if (keyIsPressed && (key === 'G' || key === 'g')) {
         resetGame();
@@ -425,11 +427,11 @@ function showFacts() {
     rect(box.x, box.y, box.width, box.height);
     pop();
 
-    // The text
+    // The facts
     push();
     fill("#ff6247");
     textSize(18);
-    text(speech[speechIndex], box.x + box.padding, box.y + box.padding, box.width - 2 * box.padding, box.height - 2 * box.padding);
+    text(speech[speechIndex], box.x + box.padding, box.y + box.padding, box.width - 5 * box.padding, box.height - 2 * box.padding);
     pop();
 }
 
