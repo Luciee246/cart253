@@ -368,6 +368,7 @@ function gameOver() {
     textFont("monospace");
     textSize(20);
     text(`You ate ${fliesEaten} flies!`, width / 2, height / 2 - 60);
+    // Fun fact
     textSize(16);
     text("Fun fact! The pumpkin toadlet is so small that their", width / 2, height / 2 + 20);
     text("inner ear structure for balance does not allow them to jump properly.", width / 2, height / 2 + 40);
