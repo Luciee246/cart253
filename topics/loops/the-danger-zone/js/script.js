@@ -56,10 +56,17 @@ function draw() {
  * Sorry hero
  */
 function placeHero() {
-    // Choose a random spot for the hero
+    // Choose a random spot for the hero not in the danger zone
     hero.x = random(0, width);
     hero.y = random(0, height);
-    // This COULD BE IN THE DANGER ZONE!
+
+    let d = dist(hero.x, hero.y, dangerZone.x, dangerZone.y);
+
+    while (d < (dangerZone.size / 2 + hero.size / 2)) {
+        hero.x = random(0, width);
+        hero.y = random(0, height);
+        d = dist(hero.x, hero.y, dangerZone.x, dangerZone.y);
+    }
 }
 
 /**
