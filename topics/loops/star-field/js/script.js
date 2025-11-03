@@ -1,9 +1,8 @@
 /**
- * Title of Project
- * Author Name
+ * Star-field
+ * Pippin Barr
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Draws a star-field with a for-loop!
  */
 
 "use strict";
