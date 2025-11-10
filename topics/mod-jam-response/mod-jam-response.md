@@ -1,19 +1,26 @@
 Marc-Antoine Pilliot:
 https://coolusermarco.github.io/cart253/CART%20253%20Pippins/art%20jam%20project%20self%20portrait%20marc%20pilliot/index.html 
 
-THIS IS SO COOL.
+This is super cool!
 
-I was a bit confused at first since the only movable object was the hair, but that was because the frame that contained the hair was covering the other movable objects. You can only move the eyes, nose, mouth, and body if you move the hair completely away from everything else.
+I like that multiple flies show up at once, and that the tongue can catch them all instead of only catching one. It kind of makes this project “overwhelming” in a sense? But not in a bad way! It made me feel like “Okay, I need to keep clicking and moving the tongue fast so I can get as many points as I can.”
 
-The coding is EXTREMELY well organized and clear. I was able to understand everything you did because of the comments, and that's what made me realize that every object is supposed to move, not just the hair.
+Because of the constant clicking to catch the flies, the game-over screen only showed up for a second before the game/next level restarted. It would be nice if the game state changed from “game-over” to “reset” with another button instead of a mouse click, so that you could see your score, etc.
 
-I really like the idea of moving different objects around and having the user control what the character looks like. I think it would be super cool to have multiple different objects to choose from to make the character look different.
+I just replayed the game and saw that the frog’s body changes color based on whether you eat a gold or red fly, and that is so cool and creative. I really like the transparency when you eat the red fly; it makes the frog look sick, which is kinda cool, to be honest.
 
-This is a very cool project, and I had a lot of fun moving everything around to make funny faces :)
+I couldn't find the new code you added, so my coding comments are based on what I see rather than the potential comments you added in your code.
+
+The red and gold flies don’t show up on the same level. They alternate randomly, and I don’t know if that was the goal. If not, maybe add a randomness factor to have them alternate on the same level?
+
+The title font size could be smaller; it bleeds onto the edges of the canvas. The “click anywhere to start” could also be another color, maybe a darker one; it was a little bit hard to see with the grass background.
+
+Overall, it’s a super cool project and gave me some ideas I can implement in my future projects.
+
 
 
 Huynh Bao Khuong Nguyen:
-https://pentonfreak.github.io/Art-Jam-Assignment/ 
+https://pentonfreak.github.io/cart253/Mod-Jam/
 
 The use of pixel art is super cool, and it looks pretty hard to do. It’s very impressive!
 
