@@ -15,22 +15,22 @@ The red and gold flies don’t show up on the same level. They alternate randoml
 
 The title font size could be smaller; it bleeds onto the edges of the canvas. The “click anywhere to start” could also be another color, maybe a darker one; it was a little bit hard to see with the grass background.
 
-Overall, it’s a super cool project and gave me some ideas I can implement in my future projects.
+Overall, it’s a super cool project and gave me some ideas I can implement in my future projects. :)
 
 
 
 Huynh Bao Khuong Nguyen:
 https://pentonfreak.github.io/cart253/Mod-Jam/
 
-The use of pixel art is super cool, and it looks pretty hard to do. It’s very impressive!
+Wow, this is a lot harder than it looks!
 
-The coding could be a little more organized. It would be great if there were comments for every line; at the very least, it would be easier to understand if each line had an explanation as to what it does. The main problem is that “TILE_SIZE” is everywhere, when all of those could be put as a function call, and could be called on by using “let”.
+I like the sound of the flies; it made it more stressful, and I like that.
+Also, the flies moved insanely fast, and the mix of the sounds with the fast flies just makes this a rage game, which I love, so props to that!
 
-I really like the pixel art, it’s honestly very impressive. The use of the grid looks like a math notebook that you doodled in; it’s pretty relatable. The shading adds a lot to the artwork, the 3d aspect makes it look like a video game character!
+I realized by looking at the code that you EAT THE START BUTTON TO START THE GAME, WHICH IS SO CREATIVE.
 
-It would be cool if the mouse could control the eyes in a circular motion. Instead of just having the eyes move left and center, they could move in a circle depending on where the mouse is.
+The coding you did to have the eyes follow the fly is super cool and very organized. I didn’t know how to code what you did, but I understood everything you wrote because it was so clear :) I’ll definitely be using that for future projects!
 
-This was super fun to interact with! I moved my cursor really fast on the screen to make the eyes go crazy. It was funny :)
 
 
 Philippe Beauchemin:
