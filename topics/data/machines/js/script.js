@@ -11,24 +11,32 @@
 "use strict";
 
 const machines = [{
-
+    type: "incinerator",
     x: 0,
     y: 100,
     width: 100,
     height: 100,
-    color: "#ff4400"
+    color: "#ff4400",
+    draggable: true,
+    functionality: 100
 }, {
+    type: "freezer",
     x: 150,
     y: 100,
     width: 100,
     height: 100,
-    color: "#bbbbff"
+    color: "#bbbbff",
+    draggable: false,
+    functionality: 80
 }, {
+    type: "crusher",
     x: 300,
     y: 100,
     width: 100,
     height: 100,
-    color: "#777777"
+    color: "#777777",
+    draggable: true,
+    functionality: 50
 }];
 
 /**
