@@ -7,6 +7,13 @@
 
 "use strict";
 
+// Our tarot data
+let tarot = undefined;
+
+function preload() {
+    tarot = loadJSON("assets/data/tarot_interpretations.json");
+}
+
 /**
  * tbd.
 */
