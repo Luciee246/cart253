@@ -34,12 +34,17 @@ The coding you did to have the eyes follow the fly is super cool and very organi
 
 
 Philippe Beauchemin:
-https://philippe-bn.github.io/cart253/topics/art-jam-assignment/ 
+https://philippe-bn.github.io/cart253/topics/mod-jam-assignment/
 
-Once I think I figured out everything there is to do in this work, I find a lot more things to interact with :)
+This is super super super creative!
+I really like the biblical connotation that Eve is the fruit, where you die and are punished for eating her.
 
-This was a super cool work. I think the color palette was interesting, and once again, the fact that you can interact with literally everything is super cool. I found the arm movement to be the coolest; it didn't move as fast as the cursor did, which made the arm animation look very smooth.
+First of all, the start screen is super creative; I love that the eyes follow the cursor and the little frog comment :)
 
-The only thing I would fix is that the words could be combined with the emojis so as not to cover your name when you bring the emojis up. 
+In-game, I like that the eyes only follow Eden. It really builds on the biblical idea of her importance.
 
-The coding is super organized, and the comments are very clear. The function calls are also very clear. It’s Simple, Readable, And Easy Logic :)
+I also REALLY like that the flies just keep respawning if you don’t eat them, along with the next element in the array. It makes for a very stressful proceeding of the game, which is super cool.
+
+The use of “for… of” makes the coding a lot more organized instead of having to rewrite the same fly elements everywhere. The comments also really bring together the code; your code is insanely long, and to have those comments explain every little thing is super helpful to understand it all (something I should do more of in my code, so thanks for reminding me :) )
+
+I really like this project, both for creativity and the biblical aspect of it!
