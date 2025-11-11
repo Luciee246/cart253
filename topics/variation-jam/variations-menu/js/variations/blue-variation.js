@@ -2,6 +2,7 @@
  * This file contains the code to run *only* the blue variation part of the program.
  * Note how it has its own draw, blueDraw(), and its own keyPressed, blueKeyPressed().
  * This keeps the stuff the menu needs to do *separate* from the rest of the program.
+ * CHANGE WHAT'S IN THE FUNCTIONS TO MAKE VARIATION
  */
 
 /**

@@ -27,11 +27,11 @@ function draw() {
         case "menu":
             menuDraw();
             break;
-        case "red-variation":
-            redDraw();
-            break
-        case "green-variation":
-            greenDraw();
+        case "normal-variation":
+            normalDraw();
+            break;
+        case "opposite-variation":
+            oppositeDraw();
             break;
         case "blue-variation":
             blueDraw();
@@ -48,11 +48,11 @@ function mousePressed() {
         case "menu":
             menuMousePressed();
             break;
-        case "red-variation":
-            redMousePressed();
-            break
-        case "green-variation":
-            greenMousePressed();
+        case "normal-variation":
+            normalMousePressed();
+            break;
+        case "opposite-variation":
+            oppositeMousePressed();
             break;
         case "blue-variation":
             blueMousePressed();
@@ -69,11 +69,11 @@ function keyPressed(event) {
         case "menu":
             menuKeyPressed(event);
             break;
-        case "red-variation":
-            redKeyPressed(event);
-            break
-        case "green-variation":
-            greenKeyPressed(event);
+        case "normal-variation":
+            normalKeyPressed(event);
+            break;
+        case "opposite-variation":
+            oppositeKeyPressed(event);
             break;
         case "blue-variation":
             blueKeyPressed(event);

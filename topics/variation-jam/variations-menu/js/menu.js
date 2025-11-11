@@ -5,21 +5,54 @@
  */
 
 const menuText = `
-(R) Red variation
-(G) Green variation
-(B) Blue variation`
+(N) Normal
+(O) Opposite day
+(B) Blue variation
+(ESC) Menu`
+
+const titleText = `
+Devil in the details`
+
+//NOT MY FAVOURITE, CHANGE IT
+const instructionsText = `
+The devil gets lost a lot. 
+Help him go back to his throne.`
 
 /**
  * Display the main menu
  */
 function menuDraw() {
-    background(0);
+    background("#a40000");
 
     push();
-    fill(255);
+    fill("#e76161");
+    textFont('Courier New, monospace');
     textSize(32);
     textAlign(CENTER, CENTER);
     text(menuText, width / 2, height / 2);
+    pop();
+
+    menuDrawTitle();
+    menuDrawInstructions();
+}
+
+function menuDrawTitle() {
+    push();
+    fill("#350707");
+    textFont('Courier New, monospace');
+    textSize(48);
+    textAlign(CENTER, CENTER);
+    text(titleText, width / 2, height / 4);
+    pop();
+}
+
+function menuDrawInstructions() {
+    push();
+    fill("#350707");
+    textFont('Courier New, monospace');
+    textSize(24);
+    textAlign(CENTER, CENTER);
+    text(instructionsText, width / 2, height * 3 / 4);
     pop();
 }
 
@@ -28,14 +61,14 @@ function menuDraw() {
  */
 function menuKeyPressed(event) {
     switch (event.keyCode) {
-        case 82:
-            state = "red-variation";
-            redSetup();
+        case 78:
+            state = "normal-variation";
+            normalSetup();
             break;
 
-        case 71:
-            state = "green-variation";
-            greenSetup();
+        case 79:
+            state = "opposite-variation";
+            oppositeSetup();
             break;
 
         case 66:
