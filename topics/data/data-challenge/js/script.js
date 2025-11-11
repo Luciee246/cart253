@@ -1,6 +1,6 @@
 /**
  * Terrible New Car
- * Pippin Barr
+ * Chloé Guerin, Yelena Arakelian, Scarlett Arriola, Lucie Soussana
  * 
  * A program to generate new car model names using dinosaurs.
  * 
@@ -11,20 +11,21 @@
 
 "use strict";
 
-let carData = undefined;
-let dinosaurData = undefined;
+let carsData = undefined;
+let dinosaursData = undefined;
 let langData = undefined;
 let lang = "fr";
 
 // Starts with the instruction
 let carName = "Click to generate a car name.";
 
+
 /**
  * Load the car and dinosaur data
  */
 function preload() {
-    cars = loadJSON("assets/data/cars/cars.json");
-    dinosaurs = loadJSON("assets/data/dinosaurs/dinosaurs.json");
+    carsData = loadJSON("./assets/data/cars.json");
+    dinosaursData = loadJSON("./assets/data/dinosaurs.json");
 }
 
 /**
@@ -49,9 +50,9 @@ function draw() {
 }
 
 /**
- * Generate a new car name
+ * Generate a new car name on mouse press
  */
 function mousePressed() {
-    const car = random(cars.cars);
-    const dinosaurs = random(dinosaurs.dinosaurs);
+    const dinosaur = random(dinosaursData.dinosaurs);
+    carName = dinosaur + random(carsData.cars);
 }

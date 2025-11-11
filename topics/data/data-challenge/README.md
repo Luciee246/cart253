@@ -1,6 +1,6 @@
 # Terrible new car
 
-Lucie Soussana, Scarlett Ariolla, Chloe Guerrin, Yelena Arakelian
+Lucie Soussana, Scarlett Arriola, Chloé Guerin, Yelena Arakelian
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
