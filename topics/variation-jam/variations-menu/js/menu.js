@@ -22,12 +22,13 @@ Help it go back to its home!`
  * Display the main menu
  */
 function menuDraw() {
-    background("#dcbf66");
+    background("#ffee8c");
 
     push();
-    fill("#523407");
+    fill("#e86100");
     textFont('Courier New, monospace');
     textSize(25);
+    textStyle(BOLD);
     textAlign(CENTER, CENTER);
     text(menuText, width / 2, height * 3 / 4);
     pop();
@@ -38,9 +39,10 @@ function menuDraw() {
 
 function menuDrawTitle() {
     push();
-    fill("#271904");
+    fill("#e86100");
     textFont('Courier New, monospace');
     textSize(55);
+    textStyle(BOLD);
     textAlign(CENTER, CENTER);
     text(titleText, width / 2, height / 4);
     pop();
@@ -48,7 +50,7 @@ function menuDrawTitle() {
 
 function menuDrawInstructions() {
     push();
-    fill("#ca7600");
+    fill("#241603");
     textFont('Courier New, monospace');
     textSize(24);
     textAlign(CENTER, CENTER);

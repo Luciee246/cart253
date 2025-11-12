@@ -25,8 +25,8 @@ This bit should have some images of the program running so that the reader has a
 This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
-> - The clown image is a capture of the clown from the Apple emoji character set.
-> - Freesound.org
+> - This project is based on the disc master challenge we did in class.
+> - Sound is "What falling in love feels like" from Eva Tiedemann on YouTube
 
 ## License
 

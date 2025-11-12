@@ -6,34 +6,41 @@
  * on the canvas using their own circle.
  */
 
+
+let score = 0;
+
 const puck = {
-    x: 200,
-    y: 200,
+    x: 100,
+    y: 100,
     size: 100,
-    fill: "#ff0000"
+    fill: "#e86100"
 };
 
 const user = {
     x: undefined, // will be mouseX
     y: undefined, // will be mouseY
     size: 75,
-    fill: "#000000"
+    fill: "#253d2c"
 };
 
+// Cannot have the puck start in this area
 const target = {
-    x: 350,
-    y: 350,
+    x: undefined,
+    y: undefined,
     size: 100,
-    fill: "#3C4C7D",
+    fill: "#2e6f40",
     fills: {
-        noOverlap: "#3C4C7D",
-        overlap: "#EFF542",
+        noOverlap: "#2e6f40",
+        overlap: "#68ba7f",
     }
 }
 
 
 function normalSetup() {
     createCanvas(500, 500);
+    // Random positioning for the target
+    target.x = random(0, width);
+    target.y = random(0, height);
 }
 
 
@@ -41,7 +48,7 @@ function normalSetup() {
  * This will be called every frame when the normal variation is active
  */
 function normalDraw() {
-    background("#aaaaaa");
+    background("#ffee8c");
 
     // Move user circle
     normalMoveUser();
@@ -55,6 +62,9 @@ function normalDraw() {
 
     // Move the puck with the user circle
     normalMovePuck();
+
+    //Draws a score
+    normalScore();
 }
 
 
@@ -102,7 +112,7 @@ function normalDrawPuck() {
 /** Moves the puck if the user circle is overlapping it
  */
 function normalMovePuck() {
-    // Calcuate distance between mouse and puck
+    // Calculate distance between mouse and puck
     const d = dist(user.x, user.y, puck.x, puck.y);
     if (d < user.size / 2 + puck.size / 2) {
         if (puck.x > user.x) {
@@ -119,16 +129,31 @@ function normalMovePuck() {
     }
 };
 
-/** Draws a target
+/**
+ * Adds a score on the top left of the screen
+ */
+function normalScore() {
+    fill("#253d2c");
+    textAlign(LEFT, TOP);
+    textFont('Courier New, monospace');
+    textSize(20);
+    text(`Score: ${score}`, 10, 10);
+}
+
+/** Draws a target in a random position, and moves it somewhere else when the puck overlaps the target
  */
 function normalDrawTarget() {
     push();
     noStroke();
     fill(target.fill);
     ellipse(target.x, target.y, target.size);
-    const d = dist(target.x, target.y, puck.x, puck.y);
-    if (d < target.size / 2 + puck.size / 2) {
+    let d = dist(target.x, target.y, puck.x, puck.y);
+    if (d < (target.size / 2 + puck.size / 2)) {
         target.fill = target.fills.overlap
+        score++;
+        target.x = random(0, width);
+        target.y = random(0, height);
+        d = dist(target.x, target.y, puck.x, puck.y);
     }
     else {
         target.fill = target.fills.noOverlap
