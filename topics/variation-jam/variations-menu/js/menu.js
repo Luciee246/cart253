@@ -7,29 +7,29 @@
 const menuText = `
 (N) Normal
 (O) Opposite day
-(B) Blue variation
+(S) No see, only hear
 (ESC) Menu`
 
 const titleText = `
-Devil in the details`
+Disc Master`
 
 //NOT MY FAVOURITE, CHANGE IT
 const instructionsText = `
-The devil gets lost a lot. 
-Help him go back to his throne.`
+The disc gets lost a lot. 
+Help it go back to its home!`
 
 /**
  * Display the main menu
  */
 function menuDraw() {
-    background("#a40000");
+    background("#dcbf66");
 
     push();
-    fill("#e76161");
+    fill("#523407");
     textFont('Courier New, monospace');
-    textSize(32);
+    textSize(25);
     textAlign(CENTER, CENTER);
-    text(menuText, width / 2, height / 2);
+    text(menuText, width / 2, height * 3 / 4);
     pop();
 
     menuDrawTitle();
@@ -38,9 +38,9 @@ function menuDraw() {
 
 function menuDrawTitle() {
     push();
-    fill("#350707");
+    fill("#271904");
     textFont('Courier New, monospace');
-    textSize(48);
+    textSize(55);
     textAlign(CENTER, CENTER);
     text(titleText, width / 2, height / 4);
     pop();
@@ -48,11 +48,11 @@ function menuDrawTitle() {
 
 function menuDrawInstructions() {
     push();
-    fill("#350707");
+    fill("#ca7600");
     textFont('Courier New, monospace');
     textSize(24);
     textAlign(CENTER, CENTER);
-    text(instructionsText, width / 2, height * 3 / 4);
+    text(instructionsText, width / 2, height / 2 - 50);
     pop();
 }
 
@@ -71,16 +71,9 @@ function menuKeyPressed(event) {
             oppositeSetup();
             break;
 
-        case 66:
-            state = "blue-variation";
-            blueSetup();
+        case 83:
+            state = "sound-variation";
+            soundSetup();
             break;
     }
-}
-
-/**
- * This will be called whenever the mouse is pressed while the menu is active
- */
-function menuMousePressed() {
-
 }

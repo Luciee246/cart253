@@ -33,8 +33,8 @@ function draw() {
         case "opposite-variation":
             oppositeDraw();
             break;
-        case "blue-variation":
-            blueDraw();
+        case "sound-variation":
+            soundDraw();
             break;
     }
 }
@@ -54,8 +54,8 @@ function mousePressed() {
         case "opposite-variation":
             oppositeMousePressed();
             break;
-        case "blue-variation":
-            blueMousePressed();
+        case "sound-variation":
+            soundMousePressed();
             break;
     }
 }
@@ -75,8 +75,8 @@ function keyPressed(event) {
         case "opposite-variation":
             oppositeKeyPressed(event);
             break;
-        case "blue-variation":
-            blueKeyPressed(event);
+        case "sound-variation":
+            soundKeyPressed(event);
             break;
     }
 }
