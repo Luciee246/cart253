@@ -74,6 +74,7 @@ function normalDraw() {
 function normalKeyPressed(event) {
     if (event.keyCode === 27) {
         state = "menu";
+        score = 0;
     }
 };
 
