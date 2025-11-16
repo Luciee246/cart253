@@ -11,21 +11,21 @@ const menuText = `
 (ESC) Menu`
 
 const titleText = `
-Disc Master`
+Hockey Master`
 
 //NOT MY FAVOURITE, CHANGE IT
 const instructionsText = `
-The disc gets lost a lot. 
+The puck gets lost a lot. 
 Help it go back to its home!`
 
 /**
  * Display the main menu
  */
 function menuDraw() {
-    background("#ffee8c");
+    background("#dbd8c7");
 
     push();
-    fill("#e86100");
+    fill("#160539");
     textFont('Courier New, monospace');
     textSize(25);
     textStyle(BOLD);
@@ -39,7 +39,7 @@ function menuDraw() {
 
 function menuDrawTitle() {
     push();
-    fill("#e86100");
+    fill("#800a0a");
     textFont('Courier New, monospace');
     textSize(55);
     textStyle(BOLD);
