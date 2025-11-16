@@ -1,23 +1,28 @@
 /**
- * Circle Master
- * Pippin Barr
+ * Hockey Master
+ * Lucie Soussana
  *
- * This will be a program in which the user can push a circle
+ * This will be a program in which the user can push a puck to a goal
  * on the canvas using their own circle.
  */
 
+"use strict";
+
+let normalModeState = "title"; // Can be: title, playing, gameover
 
 let score = 0;
 
 let teams = undefined;
+
+let timerStarted = false;
+let timeLeft = 10;
+let timer;
 
 // The speech itself
 const speech = [];
 
 // Which sentence in the index to display
 let speechIndex = 0;
-
-let time = 0;
 
 const puck = {
     x: 100,
@@ -62,34 +67,42 @@ function normalSetup() {
  * This will be called every frame when the normal variation is active
  */
 function normalDraw() {
-    background("#dbd8c7");
+    if (normalModeState === "title") {
+        menuDraw();
+    }
+    else if (normalModeState === "playing") {
+        background("#dbd8c7");
 
-    // Good job, wow!
-    goodJob();
+        // All NHL teams :D
+        drawTeams();
 
-    // Move user circle
-    normalMoveUser();
+        // Move user circle
+        normalMoveUser();
 
-    //Draws a target
-    normalDrawTarget();
+        //Draws a target
+        normalDrawTarget();
 
-    // Draw the user and puck
-    normalDrawUser();
-    normalDrawPuck();
+        // Draw the user and puck
+        normalDrawUser();
+        normalDrawPuck();
 
-    // Move the puck with the user circle
-    normalMovePuck();
+        // Move the puck with the user circle
+        normalMovePuck();
 
-    //Draws a score
-    normalScore();
+        //Draws a score
+        normalScore();
 
-    // Adds a timer
-    timer();
+        // Adds a timer
+        startCountdown();
+    }
+    else if (normalModeState === "gameover") {
+        gameOver();
+    }
 }
 
 
-function goodJob() {
-    // Only display speech if score is at least 1
+function drawTeams() {
+    // Only display teams if score is at least 1
     if (score < 1) {
         return;
     }
@@ -103,18 +116,36 @@ function goodJob() {
     textAlign(LEFT, BOTTOM)
     text(currentLine, 10, height - 10);
     pop();
-}
+};
 
 /**
  * This will be called whenever a key is pressed while the normal variation is active
  */
 function normalKeyPressed(event) {
+
+    // Start game with N on title
+    if (normalModeState === "title" && event.keyCode === 78) {
+        normalModeState = "playing";
+        startCountdown();
+        return;
+    }
+
+    // Restart with N on game over
+    if (normalModeState === "gameover" && event.keyCode === 78) {
+        resetGame();
+        normalModeState = "playing";
+        startCountdown();
+        return;
+    }
+
+    // ESC → go back to main menu
     if (event.keyCode === 27) {
         state = "menu";
+        normalModeState = "title";
         score = 0;
+        return;
     }
 };
-
 
 /**
  * Sets the user position to the mouse position
@@ -154,19 +185,18 @@ function normalMovePuck() {
     const d = dist(user.x, user.y, puck.x, puck.y);
     if (d < user.size / 2 + puck.size / 2) {
         if (puck.x > user.x) {
-            puck.x += 1
+            puck.x += 3
         }
         if (puck.x < user.x)
-            puck.x -= 1
+            puck.x -= 3
         if (puck.y > user.y) {
-            puck.y += 1
+            puck.y += 3
         }
         if (puck.y < user.y) {
-            puck.y -= 1
+            puck.y -= 3
         }
     }
 };
-
 
 
 /** Draws a target in a random position, and moves it somewhere else when the puck overlaps the target
@@ -212,25 +242,33 @@ function normalScore() {
     text(`Score: ${score}`, 10, 30);
 }
 
-function timer() {
-    // Display the timer
+function startCountdown() {
+    // draw timer every frame
     push();
     fill("#241603");
     textSize(20);
-    // Bottom left
-    textAlign(LEFT, TOP)
-    text(time, 10, 10);
+    textAlign(LEFT, TOP);
+    text(timeLeft, 10, 10);
     pop();
 
-    // Add a 10 second timer
+    // Only start ONCE
+    if (!timerStarted) {
+        timerStarted = true;
 
-    // Game over screen
-    if ("10 seconds pass") {
-        gameOver();
+        timer = setInterval(() => {
+            timeLeft--;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                gameState = "gameover";
+            }
+        }, 1000);
     }
 }
 
+
 function gameOver() {
+    normalModeState = "gameover";
     push();
     // Draws a background
     fill("#b6b6b6");
@@ -238,9 +276,6 @@ function gameOver() {
     // Draws the game over text and score
     fill("#241603");
     textAlign(CENTER, CENTER);
-    textFont("Courier New, monospace");
-    textSize(32);
-    text("TOO MUCH TOO MUCH!", width / 2, height / 2 - 100);
     textFont("Courier New, monospace");
     textSize(20);
     text(`You got ${score} goals!`, width / 2, height / 2 - 60);
@@ -258,8 +293,9 @@ function gameOver() {
     // Restarts the game by pressing ESC
     textSize(16);
     text("Esc to play again!", width / 2, height / 2 + 100);
-    if (keyCode === 27) {
-        menuDraw();
-    }
     pop();
+}
+
+function resetGame() {
+    gameState = "playing";
 }
