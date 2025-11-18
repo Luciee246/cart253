@@ -13,34 +13,6 @@ let soundModeState = "playing"; // Can be: playing, gameover
 
 let fixYouSound;
 
-// // The NHL teams themselves
-// let NHL = [];
-
-// // Which sentence in the index to display
-// let NHLIndex = 0;
-
-// const puck = {
-//     x: 100,
-//     y: 100,
-//     size: 100,
-//     fill: "#0a0501"
-// };
-
-// const user = {
-//     x: undefined, // will be mouseX
-//     y: undefined, // will be mouseY
-//     size: 75,
-//     fill: "#830b0b"
-// };
-
-// // Cannot have the puck start in this area
-// const target = {
-//     x: undefined,
-//     y: undefined,
-//     size: 100,
-//     fill: "#dbd8c7"
-// }
-
 
 function preload() {
     NHL = loadJSON("assets/data/nhl_teams.json");
@@ -56,6 +28,12 @@ function soundSetup() {
     target.y = random(0, height);
     soundModeState = "playing";
     target.fill = "#dbd8c7";
+
+    // Plays the song to find the target
+    if (!fixYouSound.isPlaying()) {
+        fixYouSound.play();
+        // hasSoundPlayed = true;
+    }
 }
 
 
@@ -93,6 +71,9 @@ function soundDraw() {
     }
     else if (soundModeState === "gameover") {
         gameOver();
+        if (fixYouSound.isPlaying()) {
+            fixYouSound.stop();
+        }
     }
 }
 
@@ -113,26 +94,6 @@ function drawTeams() {
     textAlign(LEFT, BOTTOM)
     text(currentLine, 10, height - 10);
     pop();
-};
-
-/**
- * This will be called whenever a key is pressed while the sound variation is active
- */
-function soundKeyPressed(event) {
-    // Plays the song to find the target
-    if (!fixYouSound.isPlaying()) {
-        fixYouSound.play();
-        // hasSoundPlayed = true;
-    }
-    // ESC → go back to main menu
-    if (event.keyCode === 27) {
-        state = "menu";
-        score = 0;
-        timeLeft = 10;
-        timerStarted = false;
-        sound.stop();
-        return;
-    }
 };
 
 /**
@@ -231,70 +192,8 @@ function soundScore() {
     text(`Score: ${score}`, 10, 30);
 }
 
-function startCountdown() {
-    // draw timer every frame
-    push();
-    fill("#241603");
-    textSize(20);
-    textAlign(LEFT, TOP);
-    text(timeLeft, 10, 10);
-    pop();
-
-    // Only start ONCE
-    if (!timerStarted) {
-        timerStarted = true;
-
-        timer = setInterval(() => {
-            timeLeft--;
-
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                gameOver();
-                timeLeft = 10;
-            }
-        }, 1000);
-    }
-}
-
 function soundVol() {
     let d = dist(puck.x, puck.y, target.x, target.y);
-    let newVolume = map(d, 100, 0, 0, 1, true);
+    let newVolume = map(d, 250, 100, 0, 1, true);
     outputVolume(newVolume);
-}
-
-
-function gameOver() {
-    soundModeState = "gameover";
-    if (!sound.isPlaying()) {
-        sound.play();
-    }
-    push();
-    // Draws a background
-    fill("#b6b6b6");
-    rect(0, 0, width, height);
-    // Draws the game over text and score
-    fill("#241603");
-    textAlign(CENTER, CENTER);
-    textFont("Courier New, monospace");
-    textSize(20);
-    text(`You got ${score} goals!`, width / 2, height / 2 - 60);
-    pop();
-
-    push();
-    // Draws the restart button
-    noStroke();
-    fill("#740e0e");
-    rect(width / 2 - 100, height / 2 + 80, 200, 40);
-    fill("#110862");
-    textAlign(CENTER, CENTER);
-    textStyle(BOLD)
-    textFont("Courier New, monospace");
-    // Restarts the game by pressing ESC
-    textSize(16);
-    text("Esc to play again!", width / 2, height / 2 + 100);
-    pop();
-}
-
-function resetGame() {
-    gameState = "playing";
 }

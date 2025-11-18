@@ -119,15 +119,7 @@ function drawTeams() {
  * This will be called whenever a key is pressed while the normal variation is active
  */
 function normalKeyPressed(event) {
-    // ESC → go back to main menu
-    if (event.keyCode === 27) {
-        state = "menu";
-        score = 0;
-        timeLeft = 10;
-        timerStarted = false;
-        sound.stop();
-        return;
-    }
+
 };
 
 /**
@@ -254,6 +246,7 @@ function startCountdown() {
 
 function gameOver() {
     normalModeState = "gameover";
+    soundModeState = "gameover";
     if (!sound.isPlaying()) {
         sound.play();
     }

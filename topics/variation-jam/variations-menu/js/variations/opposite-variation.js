@@ -3,6 +3,7 @@
  * Note how it has its own draw, oppositeDraw(), and its own keyPressed, oppositeKeyPressed().
  * This keeps the stuff the menu needs to do *separate* from the rest of the program.
  * CHANGE WHAT'S IN THE FUNCTIONS TO MAKE VARIATION
+ * Copy paste from sound-variation, basically leave the stuff I dont change, and only write the stuff I do.
  * 
  */
 
@@ -18,15 +19,6 @@ function oppositeSetup() {
  */
 function oppositeDraw() {
     background("green");
-}
-
-/**
- * This will be called whenever a key is pressed while the opposite variation is active
- */
-function oppositeKeyPressed(event) {
-    if (event.keyCode === 27) {
-        state = "menu";
-    }
 }
 
 /**

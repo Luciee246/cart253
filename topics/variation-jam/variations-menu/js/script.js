@@ -45,18 +45,17 @@ function draw() {
  * current state
  */
 function keyPressed(event) {
+    // ESC → go back to main menu
+    if (event.keyCode === 27) {
+        window.location.reload();
+    }
+
     switch (state) {
         case "menu":
             menuKeyPressed(event);
             break;
-        case "normal-variation":
-            normalKeyPressed(event);
-            break;
         case "opposite-variation":
             oppositeKeyPressed(event);
-            break;
-        case "sound-variation":
-            soundKeyPressed(event);
             break;
     }
 }

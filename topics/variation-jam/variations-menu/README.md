@@ -6,19 +6,21 @@ Lucie Soussana
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+> *Hockey Master* is a simulator experience that allows the user to control a puck and push it to the goal.
 
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
+> The experience is controlled via mouse movement, with the user moving the puck and getting it to goal, and you play for a duratino of 10 seconds.
 
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
+> This project is heavily influenced by the Montreal Canadiens (the best team), have your sound on!
 
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+> Three variations:
+> - Normal: Get the puck to the goal as many times as you can!
+> - Opposite: 
+> - Music will guide you: The target can only be found by listening to the music that plays louder when you get closer to it (hot/cold style)
 
 ## Screenshot(s)
-
-This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
-
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of the normal variation](./assets/images/hockey-normal.png)
+> ![Image of the opposite variation](./assets/images/..png)
+> ![Image of the sound variation](.assets/images/hockey-sound.png)
 
 ## Attribution
 
