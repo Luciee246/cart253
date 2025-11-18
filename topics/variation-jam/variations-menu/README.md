@@ -26,7 +26,7 @@ This bit should attribute any code, assets or other elements used taken from oth
 
 > - This project uses [p5.js](https://p5js.org).
 > - This project is based on the disc master challenge we did in class.
-> - Sound is "What falling in love feels like" from Eva Tiedemann on YouTube
+> - https://freesound.org/
 
 ## License
 

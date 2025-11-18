@@ -66,6 +66,7 @@ function menuKeyPressed(event) {
         case 78:
             state = "normal-variation";
             normalSetup();
+            console.log("hi");
             break;
 
         case 79:

@@ -39,26 +39,6 @@ function draw() {
     }
 }
 
-/**
- * Listen for mouse pressed and call the function for it in the
- * current state
- */
-function mousePressed() {
-    switch (state) {
-        case "menu":
-            menuMousePressed();
-            break;
-        case "normal-variation":
-            normalMousePressed();
-            break;
-        case "opposite-variation":
-            oppositeMousePressed();
-            break;
-        case "sound-variation":
-            soundMousePressed();
-            break;
-    }
-}
 
 /**
  * Listen for keypressed and call the function for it in the

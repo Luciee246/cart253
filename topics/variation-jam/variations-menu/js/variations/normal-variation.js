@@ -8,7 +8,7 @@
 
 "use strict";
 
-let normalModeState = "title"; // Can be: title, playing, gameover
+let normalModeState = "playing"; // Can be: playing, gameover
 
 let score = 0;
 
@@ -18,7 +18,7 @@ let timerStarted = false;
 let timeLeft = 10;
 let timer;
 
-// The speech itself
+// The NHL teams themselves
 const speech = [];
 
 // Which sentence in the index to display
@@ -52,6 +52,7 @@ const target = {
 
 function preload() {
     teams = loadJSON("assets/data/nhl_teams.json");
+    sound = loadSound("assets/sounds/canadiens-goal.m4a");
 }
 
 
@@ -122,27 +123,12 @@ function drawTeams() {
  * This will be called whenever a key is pressed while the normal variation is active
  */
 function normalKeyPressed(event) {
-
-    // Start game with N on title
-    if (normalModeState === "title" && event.keyCode === 78) {
-        normalModeState = "playing";
-        startCountdown();
-        return;
-    }
-
-    // Restart with N on game over
-    if (normalModeState === "gameover" && event.keyCode === 78) {
-        resetGame();
-        normalModeState = "playing";
-        startCountdown();
-        return;
-    }
-
     // ESC → go back to main menu
     if (event.keyCode === 27) {
         state = "menu";
-        normalModeState = "title";
         score = 0;
+        timeLeft = 10;
+        timerStarted = false;
         return;
     }
 };
@@ -261,6 +247,7 @@ function startCountdown() {
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 gameState = "gameover";
+                timeLeft = 10;
             }
         }, 1000);
     }
