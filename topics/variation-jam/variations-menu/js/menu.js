@@ -7,7 +7,7 @@
 const menuText = `
 (N) Normal
 (O) Opposite day
-(S) No see, only hear
+(M) Music will guide you
 (ESC) Menu`
 
 const titleText = `
@@ -66,7 +66,6 @@ function menuKeyPressed(event) {
         case 78:
             state = "normal-variation";
             normalSetup();
-            console.log("hi");
             break;
 
         case 79:
@@ -74,7 +73,7 @@ function menuKeyPressed(event) {
             oppositeSetup();
             break;
 
-        case 83:
+        case 77:
             state = "sound-variation";
             soundSetup();
             break;

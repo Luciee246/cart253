@@ -6,7 +6,7 @@
       "state": "MA",
       "conference": "Eastern",
       "division": "Atlantic",
-      "name": "Boston Bruins",
+      "name": "Boston Bruins ew",
       "stadium": "TD Garden"
     },
     {
@@ -46,7 +46,7 @@
       "state": "ON",
       "conference": "Eastern",
       "division": "Atlantic",
-      "name": "Ottawa Senators",
+      "name": "Ottawa Senators ew",
       "stadium": "Canadian Tire Centre"
     },
     {
@@ -62,7 +62,7 @@
       "state": "ON",
       "conference": "Eastern",
       "division": "Atlantic",
-      "name": "Toronto Maple Leafs",
+      "name": "Toronto Maple Leafs ew",
       "stadium": "Air Canada Centre"
     },
     {
@@ -80,6 +80,14 @@
       "division": "Metropolitan",
       "name": "Columbus Blue Jackets",
       "stadium": "Nationwide Arena"
+    },
+    {
+      "city": "Seattle",
+      "state": "WA",
+      "conference": "Western",
+      "division": "Pacific",
+      "name": "Seattle Kraken",
+      "stadium": "Climate Pledge Arena"
     },
     {
       "city": "Newark",
@@ -102,7 +110,7 @@
       "state": "NY",
       "conference": "Eastern",
       "division": "Metropolitan",
-      "name": "New York Rangers",
+      "name": "New York Rangers ew",
       "stadium": "Madison Square Garden"
     },
     {
@@ -157,7 +165,7 @@
       "state": "AB",
       "conference": "Western",
       "division": "Pacific",
-      "name": "Edmonton Oilers",
+      "name": "Edmonton Oilers EWEWEWEWEW",
       "stadium": "Rogers Place"
     },
     {

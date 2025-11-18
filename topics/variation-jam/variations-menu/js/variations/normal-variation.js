@@ -4,6 +4,7 @@
  *
  * This will be a program in which the user can push a puck to a goal
  * on the canvas using their own circle.
+ * This is the normal variation.
  */
 
 "use strict";
@@ -39,15 +40,11 @@ const user = {
 };
 
 // Cannot have the puck start in this area
-const target = {
+let target = {
     x: undefined,
     y: undefined,
     size: 100,
     fill: "#110862",
-    fills: {
-        noOverlap: "#110862",
-        overlap: "#1a2093",
-    }
 }
 
 function preload() {
@@ -105,7 +102,6 @@ function drawTeams() {
     if (score < 1) {
         return;
     }
-    console.log(NHL.nhl_teams);
     let currentLine = NHL.nhl_teams[NHLIndex].name;
 
 
@@ -197,10 +193,9 @@ function normalDrawTarget() {
     ellipse(target.x, target.y, target.size);
     let d = dist(target.x, target.y, puck.x, puck.y);
     if (d < (target.size / 2 + puck.size / 2)) {
-        target.fill = target.fills.overlap
+        target.fill = target.fill
         score++;
         // Adds a random team to array
-        // NHL.push(random(NHL.nhl_teams));
         target.x = random(0, width);
         target.y = random(0, height);
         d = dist(target.x, target.y, puck.x, puck.y);
@@ -215,7 +210,7 @@ function normalDrawTarget() {
         }
     }
     else {
-        target.fill = target.fills.noOverlap
+        target.fill = target.fill
     }
     pop();
 }
