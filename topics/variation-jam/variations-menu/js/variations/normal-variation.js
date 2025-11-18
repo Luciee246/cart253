@@ -12,17 +12,17 @@ let normalModeState = "playing"; // Can be: playing, gameover
 
 let score = 0;
 
-let teams = undefined;
+let sound;
 
 let timerStarted = false;
 let timeLeft = 10;
 let timer;
 
 // The NHL teams themselves
-const speech = [];
+let NHL = [];
 
 // Which sentence in the index to display
-let speechIndex = 0;
+let NHLIndex = 0;
 
 const puck = {
     x: 100,
@@ -51,7 +51,7 @@ const target = {
 }
 
 function preload() {
-    teams = loadJSON("assets/data/nhl_teams.json");
+    NHL = loadJSON("assets/data/nhl_teams.json");
     sound = loadSound("assets/sounds/canadiens-goal.m4a");
 }
 
@@ -61,6 +61,7 @@ function normalSetup() {
     // Random positioning for the target
     target.x = random(0, width);
     target.y = random(0, height);
+    normalModeState = "playing";
 }
 
 
@@ -68,10 +69,7 @@ function normalSetup() {
  * This will be called every frame when the normal variation is active
  */
 function normalDraw() {
-    if (normalModeState === "title") {
-        menuDraw();
-    }
-    else if (normalModeState === "playing") {
+    if (normalModeState === "playing") {
         background("#dbd8c7");
 
         // All NHL teams :D
@@ -107,7 +105,9 @@ function drawTeams() {
     if (score < 1) {
         return;
     }
-    let currentLine = speech[speechIndex];
+    console.log(NHL.nhl_teams);
+    let currentLine = NHL.nhl_teams[NHLIndex].name;
+
 
     // Display the line
     push();
@@ -129,6 +129,7 @@ function normalKeyPressed(event) {
         score = 0;
         timeLeft = 10;
         timerStarted = false;
+        sound.stop();
         return;
     }
 };
@@ -167,6 +168,8 @@ function normalDrawPuck() {
 /** Moves the puck if the user circle is overlapping it
  */
 function normalMovePuck() {
+    puck.x = constrain(puck.x, 0, 500);
+    puck.y = constrain(puck.y, 0, 500);
     // Calculate distance between mouse and puck
     const d = dist(user.x, user.y, puck.x, puck.y);
     if (d < user.size / 2 + puck.size / 2) {
@@ -196,19 +199,19 @@ function normalDrawTarget() {
     if (d < (target.size / 2 + puck.size / 2)) {
         target.fill = target.fills.overlap
         score++;
-        // Adds a random team to array (FIX THIS)
-        speech.push(random(teams.nhl_teams));
+        // Adds a random team to array
+        // NHL.push(random(NHL.nhl_teams));
         target.x = random(0, width);
         target.y = random(0, height);
         d = dist(target.x, target.y, puck.x, puck.y);
         //Next line
         if (score >= 1) {
-            speechIndex++;
+            NHLIndex++;
         }
         //Wrap around if at the end
-        if (speechIndex >= speech.length) {
+        if (NHLIndex >= NHL.length) {
             // Start over
-            speechIndex = 0;
+            NHLIndex = 0;
         }
     }
     else {
@@ -246,7 +249,7 @@ function startCountdown() {
 
             if (timeLeft <= 0) {
                 clearInterval(timer);
-                gameState = "gameover";
+                gameOver();
                 timeLeft = 10;
             }
         }, 1000);
@@ -256,6 +259,9 @@ function startCountdown() {
 
 function gameOver() {
     normalModeState = "gameover";
+    if (!sound.isPlaying()) {
+        sound.play();
+    }
     push();
     // Draws a background
     fill("#b6b6b6");
