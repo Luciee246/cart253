@@ -15,7 +15,7 @@ let fixYouSound;
 
 
 function preload() {
-    NHL = loadJSON("assets/data/nhl_teams.json");
+    NHL = loadJSON("assets/data/nhl_players.json");
     sound = loadSound("assets/sounds/canadiens-goal.m4a");
     fixYouSound = loadSound("assets/sounds/fix-you.m4a");
 }
@@ -44,8 +44,8 @@ function soundDraw() {
     if (soundModeState === "playing") {
         background("#dbd8c7");
 
-        // All NHL teams :D
-        drawTeams();
+        // All NHL players :D
+        drawPlayers();
 
         // Move user circle
         soundMoveUser();
@@ -78,12 +78,12 @@ function soundDraw() {
 }
 
 
-function drawTeams() {
-    // Only display teams if score is at least 1
+function drawPlayers() {
+    // Only display players if score is at least 1
     if (score < 1) {
         return;
     }
-    let currentLine = NHL.nhl_teams[NHLIndex].name;
+    let currentLine = NHL.nhl_players[NHLIndex].name;
 
 
     // Display the line
@@ -165,14 +165,8 @@ function soundDrawTarget() {
         target.x = random(0, width);
         target.y = random(0, height);
         d = dist(target.x, target.y, puck.x, puck.y);
-        //Next line
         if (score >= 1) {
-            NHLIndex++;
-        }
-        //Wrap around if at the end
-        if (NHLIndex >= NHL.length) {
-            // Start over
-            NHLIndex = 0;
+            NHLIndex = floor(random(NHL.nhl_players.length));
         }
     }
     else {

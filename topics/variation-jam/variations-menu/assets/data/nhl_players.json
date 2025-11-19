@@ -1,0 +1,74 @@
+{
+  "description": "Current players on the Montreal Canadiens",
+  "nhl_players": [
+    {
+      "name": "J. Slafkovský, 20"
+    },
+    {
+      "name": "ARBER XHEKAJ, 72"
+    },
+    {
+      "name": "J. Veleno, 90"
+    },
+    {
+      "name": "K. Dach, 77"
+    },
+    {
+      "name": "K. Guhle, 21"
+    },
+    {
+      "name": "C. Caufield, 13"
+    },
+    {
+      "name": "L. Hutson, 48"
+    },
+    {
+      "name": "I. Demidov, 93"
+    },
+    {
+      "name": "N. Dobson, 53"
+    },
+    {
+      "name": "A. Carrier, 45"
+    },
+    {
+      "name": "P. Laine, 92"
+    },
+    {
+      "name": "Z. Bolduc, 76"
+    },
+    {
+      "name": "N. Suzuki, 14"
+    },
+    {
+      "name": "O. Kapanen, 91"
+    },
+    {
+      "name": "S. Montembault, 35"
+    },
+    {
+      "name": "J. Dobeš, 75"
+    },
+    {
+      "name": "M. Matheson, 8"
+    },
+    {
+      "name": "B. Gallagher, 11"
+    },
+    {
+      "name": "A. Newhook, 15"
+    },
+    {
+      "name": "J. Struble, 47"
+    },
+    {
+      "name": "Youppi!, 1"
+    },
+    {
+      "name": "J. Evans, 71"
+    },
+    {
+      "name": "J. Anderson, 17"
+    }
+  ]
+}
