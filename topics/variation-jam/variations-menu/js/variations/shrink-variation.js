@@ -4,48 +4,17 @@
  *
  * This will be a program in which the user can push a puck to a goal
  * on the canvas using their own circle.
- * This is the normal variation.
+ * This is the shrink variation where the goal shrinks over time. The game only ends when the goal size is 0.
  */
 
-"use strict";
+/**
+ * This will be called just before the shrink variation starts
+ */
 
-let normalModeState = "playing"; // Can be: playing, gameover
+let timer = false
 
-let score = 0;
+let shrinkModeState = "playing"; // Can be: playing, gameover
 
-let sound;
-
-let timerStarted = false;
-let timeLeft = 10;
-let timer;
-
-// The NHL players themselves
-let NHL = [];
-
-// Which sentence in the index to display
-let NHLIndex = 0;
-
-const puck = {
-    x: 100,
-    y: 100,
-    size: 100,
-    fill: "#0a0501"
-};
-
-const user = {
-    x: undefined, // will be mouseX
-    y: undefined, // will be mouseY
-    size: 75,
-    fill: "#830b0b"
-};
-
-// Cannot have the puck start in this area
-let target = {
-    x: undefined,
-    y: undefined,
-    size: 100,
-    fill: "#110862",
-}
 
 function preload() {
     NHL = loadJSON("assets/data/nhl_players.json");
@@ -53,45 +22,47 @@ function preload() {
 }
 
 
-function normalSetup() {
+function shrinkSetup() {
     createCanvas(500, 500);
     // Random positioning for the target
     target.x = random(0, width);
     target.y = random(0, height);
-    normalModeState = "playing";
+    shrinkModeState = "playing";
+    target.fill = "#dbd8c7";
 }
 
 
 /**
- * This will be called every frame when the normal variation is active
+ * This will be called every frame when the shrink variation is active
  */
-function normalDraw() {
-    if (normalModeState === "playing") {
+function shrinkDraw() {
+    if (shrinkModeState === "playing") {
         background("#dbd8c7");
 
         // All NHL players :D
         drawPlayers();
 
         // Move user circle
-        normalMoveUser();
+        shrinkMoveUser();
 
         //Draws a target
-        normalDrawTarget();
+        shrinkDrawTarget();
 
         // Draw the user and puck
-        normalDrawUser();
-        normalDrawPuck();
+        shrinkDrawUser();
+        shrinkDrawPuck();
 
         // Move the puck with the user circle
-        normalMovePuck();
+        shrinkMovePuck();
 
         //Draws a score
-        normalScore();
+        shrinkScore();
 
         // Adds a timer
         startCountdown();
+
     }
-    else if (normalModeState === "gameover") {
+    else if (shrinkModeState === "gameover") {
         gameOver();
     }
 }
@@ -116,15 +87,9 @@ function drawPlayers() {
 };
 
 /**
- * This will be called whenever a key is pressed while the normal variation is active
- */
-function normalKeyPressed(event) {
-};
-
-/**
  * Sets the user position to the mouse position
  */
-function normalMoveUser() {
+function shrinkMoveUser() {
     user.x = mouseX;
     user.y = mouseY;
 };
@@ -132,7 +97,7 @@ function normalMoveUser() {
 /**
  * Displays the user circle
  */
-function normalDrawUser() {
+function shrinkDrawUser() {
     push();
     noStroke();
     fill(user.fill);
@@ -143,7 +108,7 @@ function normalDrawUser() {
 /**
  * Displays the puck circle
  */
-function normalDrawPuck() {
+function shrinkDrawPuck() {
     push();
     noStroke();
     fill(puck.fill);
@@ -154,7 +119,7 @@ function normalDrawPuck() {
 
 /** Moves the puck if the user circle is overlapping it
  */
-function normalMovePuck() {
+function shrinkMovePuck() {
     puck.x = constrain(puck.x, 0, 500);
     puck.y = constrain(puck.y, 0, 500);
     // Calculate distance between mouse and puck
@@ -177,7 +142,7 @@ function normalMovePuck() {
 
 /** Draws a target in a random position, and moves it somewhere else when the puck overlaps the target
  */
-function normalDrawTarget() {
+function shrinkDrawTarget() {
     push();
     noStroke();
     fill(target.fill);
@@ -190,7 +155,6 @@ function normalDrawTarget() {
         target.x = random(0, width);
         target.y = random(0, height);
         d = dist(target.x, target.y, puck.x, puck.y);
-        // Adds a Canadiens player when the score is more than 1
         if (score >= 1) {
             NHLIndex = floor(random(NHL.nhl_players.length));
         }
@@ -204,74 +168,10 @@ function normalDrawTarget() {
 /**
  * Adds a score on the top left of the screen
  */
-function normalScore() {
+function shrinkScore() {
     fill("#241603");
     textAlign(LEFT, TOP);
     textFont('Courier New, monospace');
     textSize(20);
     text(`Score: ${score}`, 10, 30);
-}
-
-function startCountdown() {
-    // draw timer every frame
-    push();
-    fill("#241603");
-    textSize(20);
-    textAlign(LEFT, TOP);
-    text(timeLeft, 10, 10);
-    pop();
-
-    // Only start ONCE
-    if (!timerStarted) {
-        timerStarted = true;
-
-        timer = setInterval(() => {
-            timeLeft--;
-
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                gameOver();
-                timeLeft = 10;
-            }
-        }, 1000);
-    }
-}
-
-
-function gameOver() {
-    normalModeState = "gameover";
-    soundModeState = "gameover";
-    shrinkModeState = "gameover";
-    if (!sound.isPlaying()) {
-        sound.play();
-    }
-    push();
-    // Draws a background
-    fill("#b6b6b6");
-    rect(0, 0, width, height);
-    // Draws the game over text and score
-    fill("#241603");
-    textAlign(CENTER, CENTER);
-    textFont("Courier New, monospace");
-    textSize(20);
-    text(`You got ${score} goals!`, width / 2, height / 2 - 60);
-    pop();
-
-    push();
-    // Draws the restart button
-    noStroke();
-    fill("#740e0e");
-    rect(width / 2 - 100, height / 2 + 80, 200, 40);
-    fill("#110862");
-    textAlign(CENTER, CENTER);
-    textStyle(BOLD)
-    textFont("Courier New, monospace");
-    // Restarts the game by pressing ESC
-    textSize(16);
-    text("Esc to play again!", width / 2, height / 2 + 100);
-    pop();
-}
-
-function resetGame() {
-    gameState = "playing";
 }

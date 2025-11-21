@@ -6,7 +6,7 @@
 
 const menuText = `
 (H) Normal
-(A) Opposite day
+(A) I'M SHRINKING
 (B) Music will guide you
 (ESC) Menu`
 
@@ -69,8 +69,8 @@ function menuKeyPressed(event) {
             break;
 
         case 65:
-            state = "opposite-variation";
-            oppositeSetup();
+            state = "shrink-variation";
+            shrinkSetup();
             break;
 
         case 66:

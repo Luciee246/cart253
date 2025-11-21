@@ -30,8 +30,8 @@ function draw() {
         case "normal-variation":
             normalDraw();
             break;
-        case "opposite-variation":
-            oppositeDraw();
+        case "shrink-variation":
+            shrinkDraw();
             break;
         case "sound-variation":
             soundDraw();
@@ -53,9 +53,6 @@ function keyPressed(event) {
     switch (state) {
         case "menu":
             menuKeyPressed(event);
-            break;
-        case "opposite-variation":
-            oppositeKeyPressed(event);
             break;
     }
 }
