@@ -5,9 +5,9 @@
  */
 
 const menuText = `
-(N) Normal
-(O) Opposite day
-(M) Music will guide you
+(H) Normal
+(A) Opposite day
+(B) Music will guide you
 (ESC) Menu`
 
 const titleText = `
@@ -63,17 +63,17 @@ function menuDrawInstructions() {
  */
 function menuKeyPressed(event) {
     switch (event.keyCode) {
-        case 78:
+        case 72:
             state = "normal-variation";
             normalSetup();
             break;
 
-        case 79:
+        case 65:
             state = "opposite-variation";
             oppositeSetup();
             break;
 
-        case 77:
+        case 66:
             state = "sound-variation";
             soundSetup();
             break;
