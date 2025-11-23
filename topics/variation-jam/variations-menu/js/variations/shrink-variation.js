@@ -11,10 +11,8 @@
  * This will be called just before the shrink variation starts
  */
 
-let timer = false
 
 let shrinkModeState = "playing"; // Can be: playing, gameover
-
 
 function preload() {
     NHL = loadJSON("assets/data/nhl_players.json");
@@ -28,7 +26,10 @@ function shrinkSetup() {
     target.x = random(0, width);
     target.y = random(0, height);
     shrinkModeState = "playing";
-    target.fill = "#dbd8c7";
+
+    target.minSize = 0;
+    shrinkRate = 0.25;
+    target.fill = "#110862";
 }
 
 
@@ -46,7 +47,7 @@ function shrinkDraw() {
         shrinkMoveUser();
 
         //Draws a target
-        shrinkDrawTarget();
+        shrinkAndDrawTarget();
 
         // Draw the user and puck
         shrinkDrawUser();
@@ -57,9 +58,6 @@ function shrinkDraw() {
 
         //Draws a score
         shrinkScore();
-
-        // Adds a timer
-        startCountdown();
 
     }
     else if (shrinkModeState === "gameover") {
@@ -140,30 +138,46 @@ function shrinkMovePuck() {
 };
 
 
-/** Draws a target in a random position, and moves it somewhere else when the puck overlaps the target
+/** Draws a target in a random position. Target shrinks until the user overlaps with it, and then moves it somewhere else
  */
-function shrinkDrawTarget() {
+function shrinkAndDrawTarget() {
     push();
     noStroke();
     fill(target.fill);
-    ellipse(target.x, target.y, target.size);
-    let d = dist(target.x, target.y, puck.x, puck.y);
-    if (d < (target.size / 2 + puck.size / 2)) {
-        target.fill = target.fill
-        score++;
-        // Adds a random team to array
-        target.x = random(0, width);
-        target.y = random(0, height);
-        d = dist(target.x, target.y, puck.x, puck.y);
-        if (score >= 1) {
-            NHLIndex = floor(random(NHL.nhl_players.length));
+
+    while (true) {
+        ellipse(target.x, target.y, target.size);
+        let d = dist(target.x, target.y, puck.x, puck.y);
+
+        if (d < (target.size / 2 + puck.size / 2)) {
+            target.fill = target.fill
+            score++;
+            // Moves the target somewhere random
+            target.x = random(0, width);
+            target.y = random(0, height);
+            // Resets target size
+            target.size = 100;
+            d = dist(target.x, target.y, puck.x, puck.y);
+            // Adds a random player name
+            if (score >= 1) {
+                NHLIndex = floor(random(NHL.nhl_players.length));
+            }
+            break; // Stops loop when puck overlaps target
         }
-    }
-    else {
-        target.fill = target.fill
+
+        // Shrinks target
+        target.size -= shrinkRate;
+
+        // If target size is 0, game over
+        if (target.size <= target.minSize) {
+            gameOver();
+            break; // Stops loop when target size is 0
+        }
+        break; // Stops infinite loop from starting
     }
     pop();
 }
+
 
 /**
  * Adds a score on the top left of the screen

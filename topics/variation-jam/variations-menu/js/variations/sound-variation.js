@@ -32,7 +32,6 @@ function soundSetup() {
     // Plays the song to find the target
     if (!fixYouSound.isPlaying()) {
         fixYouSound.play();
-        // hasSoundPlayed = true;
     }
 }
 
